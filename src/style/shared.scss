@@ -1,0 +1,28 @@
+$mdc-theme-primary: rgb(18, 79, 120);
+$mdc-theme-on-primary: #fff;
+// $mdc-theme-secondary: #d1480e;
+// $mdc-theme-on-secondary: #fff;
+// $mdc-theme-accent: #d1480e;
+
+:host {
+  --mdc-theme-primary: rgb(18, 79, 120);
+  --mdc-theme-on-primary: #fff;
+  //   --mdc-theme-secondary: #d1480e;
+  //   --mdc-theme-on-secondary: #fff;
+  //   --mdc-theme-accent: #d1480e;
+  --mdc-theme-text-icon-on-background: rgb(18, 79, 120);
+}
+
+.mdc-list-item__graphic {
+  color: var(--mdc-theme-text-icon-on-background, rgba(0, 0, 0, 0.38));
+}
+
+html,
+body {
+  margin: 0;
+}
+a {
+  color: var(--mdc-theme-text-icon-on-background);
+  text-decoration: none;
+}
+@import "src/style/typography.scss";
