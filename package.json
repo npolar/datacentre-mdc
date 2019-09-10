@@ -14,6 +14,8 @@
     "chrome 69"
   ],
   "devDependencies": {
+    "rollup": "*",
+    "rollup-plugin-node-resolve": "*",
     "eslint": "*",
     "node-sass": "*",
     "postcss-cli": "*",
@@ -24,7 +26,7 @@
     "eslint": "eslint src",
     "pretest": "yarn eslint",
     "test": "yarn build",
-    "build": "yarn build-styles",
+    "build": "rollup -c",
     "build-styles": "./src/style/build-styles"
   }
 }
