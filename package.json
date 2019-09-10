@@ -1,0 +1,30 @@
+{
+  "name": "@npolar/datacentre-mdc",
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@material/mwc-button": "^0",
+    "@material/mwc-icon": "^0",
+    "@material/mwc-icon-button-toggle": "^0",
+    "@material/mwc-textfield": "^0",
+    "lit-element": "^2.1"
+  },
+  "browserslist": [
+    "chrome 69"
+  ],
+  "devDependencies": {
+    "eslint": "*",
+    "node-sass": "*",
+    "postcss-cli": "*",
+    "autoprefixer": "*"
+  },
+  "scripts": {
+    "prepare": "yarn build-styles",
+    "eslint": "eslint src",
+    "pretest": "yarn eslint",
+    "test": "yarn build",
+    "build": "yarn build-styles",
+    "build-styles": "./src/style/build-styles"
+  }
+}
