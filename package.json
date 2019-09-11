@@ -1,5 +1,5 @@
 {
-  "name": "@npolar/datacentre-mdc",
+  "name": "@npolar/vaadin_test",
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
@@ -8,6 +8,7 @@
     "@material/mwc-icon": "^0",
     "@material/mwc-icon-button-toggle": "^0",
     "@material/mwc-textfield": "^0",
+    "@vaadin/vaadin-upload": "^4.2.2",
     "lit-element": "^2.1"
   },
   "browserslist": [

@@ -1,7 +1,8 @@
 import nodeResolve from "rollup-plugin-node-resolve";
 
 const input = {
-  "button-mdc": "src/button/button-mdc.js"
+  "button-mdc": "src/button/button-mdc.js",
+  "upload-v": "src/upload/upload-v.js"
 };
 
 const output = { format: "esm", dir: "dist" };
