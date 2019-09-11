@@ -14,14 +14,16 @@
     "chrome 69"
   ],
   "devDependencies": {
-    "rollup": "*",
-    "rollup-plugin-node-resolve": "*",
-    "eslint": "*",
-    "node-sass": "*",
-    "postcss-cli": "*",
-    "autoprefixer": "*"
+    "autoprefixer": "^9",
+    "es-dev-server": "^1",
+    "eslint": "^6",
+    "node-sass": "^4",
+    "postcss-cli": "^6",
+    "rollup": "^1",
+    "rollup-plugin-node-resolve": "^5"
   },
   "scripts": {
+    "dev": "es-dev-server --app-index index.html --port 10011 --node-resolve --watch --preserve-symlinks",
     "prepare": "yarn build-styles",
     "eslint": "eslint src",
     "pretest": "yarn eslint",
