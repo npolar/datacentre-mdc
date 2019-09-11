@@ -23,12 +23,15 @@
     "rollup-plugin-node-resolve": "^5"
   },
   "scripts": {
-    "dev": "es-dev-server --app-index index.html --port 10011 --node-resolve --watch --preserve-symlinks",
+    "dev": "es-dev-server --app-index index.html --port 10001 --node-resolve --watch --preserve-symlinks",
     "prepare": "yarn build-styles",
     "eslint": "eslint src",
     "pretest": "yarn eslint",
     "test": "yarn build",
     "build": "rollup -c",
     "build-styles": "./src/style/build-styles"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
