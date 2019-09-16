@@ -1,0 +1,8 @@
+@import "src/style/shared.scss";
+//@import "@material/icon-button/mdc-icon-button.scss";
+@import "@material/mwc-icon-button/src/mwc-icon-button.scss";
+
+:host {
+  color: var(--mdc-theme-primary);
+  font-family: var(--mdc-icon-font, "Material Icons");
+}
