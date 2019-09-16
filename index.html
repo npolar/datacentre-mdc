@@ -1,20 +1,45 @@
 <html>
   <head>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <style>
-      main {
-        display: grid;
+      .warning {
+        color: orange;
       }
     </style>
   </head>
   <body>
-    <main>
-      <section>
-        <h1>button-mdc</h1>
-        <button-mdc>button-mdc</button-mdc>
-        <button-mdc outlined>outlined</button-mdc>
-        <button-mdc raised>raised</button-mdc>
-      </section>
-    </main>
+    <header>
+      <h1>header-bar</h1>
+      <!-- <header-bar></header-bar> -->
+      <header-bar name="header-bar" drawer-title="drawer's title">
+        <aside slot="drawer">
+          <h1>Drawer slot h1</h1>
+          <ul class="mdc-list">
+            <li class="mdc-list-item">item-1</li>
+          </ul>
+        </aside>
+        <main slot="main">
+          <section>
+            <h1>button-mdc</h1>
+            <button-mdc>button-mdc</button-mdc>
+            <button-mdc outlined>outlined</button-mdc>
+            <button-mdc raised>raised</button-mdc>
+          </section>
+          <section>
+            <h1>button-icon</h1>
+            <button-icon icon="menu"></button-icon>
+            <button-icon class="warning" icon="warning"></button-icon>
+          </section>
+        </main>
+      </header-bar>
+    </header>
+
+    <script type="module" src="src/header/header-bar.js"></script>
     <script type="module" src="src/button/button-mdc.js"></script>
+    <script type="module" src="src/button/button-icon.js"></script>
   </body>
 </html>
