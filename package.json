@@ -4,10 +4,14 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "@material/list": "^3.2.0",
     "@material/mwc-button": "^0",
+    "@material/mwc-drawer": "^0",
     "@material/mwc-icon": "^0",
+    "@material/mwc-icon-button": "^0.8.0",
     "@material/mwc-icon-button-toggle": "^0",
     "@material/mwc-textfield": "^0",
+    "@material/mwc-top-app-bar": "^0.8.0",
     "lit-element": "^2.1"
   },
   "browserslist": [
@@ -28,7 +32,7 @@
     "eslint": "eslint src",
     "pretest": "yarn eslint",
     "test": "yarn build",
-    "build": "rollup -c",
+    "build": "yarn build-styles && rollup -c",
     "build-styles": "./src/style/build-styles"
   },
   "files": [

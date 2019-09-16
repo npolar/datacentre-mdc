@@ -7,7 +7,7 @@ import "../button/button-icon.js";
 import { style } from "./header-bar-style.js";
 import { drawer } from "./drawer.js";
 
-const name = "Norwegian polar data centre";
+const sitename = "Norwegian polar data centre";
 
 export class HeaderBar extends LitElement {
   static get styles() {
@@ -16,9 +16,8 @@ export class HeaderBar extends LitElement {
 
   static get properties() {
     return {
-      name: { type: String },
+      title: { type: String },
       href: { type: String },
-      // type?
       drawerTitle: { type: String, attribute: "drawer-title" },
       drawerSubtitle: { type: String, attribute: "drawer-subtitle" }
     };
@@ -26,9 +25,9 @@ export class HeaderBar extends LitElement {
 
   constructor() {
     super();
-    this.name = name;
+    this.title = sitename;
     this.href = "#";
-    this.hasHeader = false;
+    this.hasHeader = () => (this.drawerTitle ? true : false);
   }
 
   async firstUpdated() {
@@ -39,10 +38,9 @@ export class HeaderBar extends LitElement {
   }
 
   render() {
-    const { name, href, hasHeader, drawerTitle, drawerSubtitle } = this;
-    console.warn({ drawerTitle, drawerSubtitle });
+    const { title, href, hasHeader, drawerTitle, drawerSubtitle } = this;
     return html`
-      <mwc-drawer ?hasHeader=${hasHeader} type="dismissible">
+      <mwc-drawer ?hasHeader=${hasHeader()} type="dismissible">
         <span slot="title">${drawerTitle}</span>
         <span slot="subtitle">${drawerSubtitle}</span>
         <slot name="drawer">${drawer}</slot>
@@ -50,7 +48,7 @@ export class HeaderBar extends LitElement {
         <div slot="appContent">
           <mwc-top-app-bar>
             <button-icon icon="menu" slot="navigationIcon"></button-icon>
-            <span slot="title"><a id="name" href="${href}">${name}</a></span>
+            <span slot="title"><a id="name" href="${href}">${title}</a></span>
             <slot name="main"></slot>
           </mwc-top-app-bar>
         </div>

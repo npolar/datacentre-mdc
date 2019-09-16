@@ -7,21 +7,18 @@
     />
     <style>
       .warning {
-        color: orange;
+        color: coral;
       }
     </style>
   </head>
   <body>
     <header>
       <h1>header-bar</h1>
-      <!-- <header-bar></header-bar> -->
-      <header-bar name="header-bar" drawer-title="drawer's title">
-        <aside slot="drawer">
-          <h1>Drawer slot h1</h1>
-          <ul class="mdc-list">
-            <li class="mdc-list-item">item-1</li>
-          </ul>
-        </aside>
+      <header-bar
+        name="header-bar"
+        drawer-title="Drawer's title"
+        drawer-subtitle="Subtitle"
+      >
         <main slot="main">
           <section>
             <h1>button-mdc</h1>

@@ -1,9 +1,7 @@
+import { IconButtonBase } from "@material/mwc-icon-button/mwc-icon-button-base.js";
 import { style } from "./button-icon-style.js";
-import { style as mwcStyle } from "@material/mwc-icon-button/mwc-icon-button-css.js";
 
-import { ButtonIconBase } from "./button-icon-base.js";
-//import { IconButton } from "@material/mwc-icon-button/mwc-icon-button.js";
-export class ButtonIcon extends ButtonIconBase {
+export class ButtonIcon extends IconButtonBase {
   static get styles() {
     return style;
   }

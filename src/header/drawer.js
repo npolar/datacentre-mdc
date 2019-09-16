@@ -5,15 +5,15 @@ export const drawer = html`
       <a class="mdc-list-item" href="dataset" tabindex="0">
         <span>Dataset catalogue</span>
       </a>
-      <a class="mdc-list-item" href="#" tabindex="0">
+      <a class="mdc-list-item" href="#">
         <span>What else?</span>
       </a>
       <hr class="mdc-list-divider" />
-      <a class="mdc-list-item" href="#apps" tabindex="0">
+      <a class="mdc-list-item" href="#apps">
         <span>More…</span>
       </a>
       <hr class="mdc-list-divider" />
-      <a class="mdc-list-item" href="/settings" tabindex="-1">
+      <a class="mdc-list-item" href="/settings">
         <button-icon icon="settings"> </button-icon>
         Settings
       </a>
