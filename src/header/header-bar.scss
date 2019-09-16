@@ -1,0 +1,11 @@
+@import "src/style/shared.scss";
+// @import "@material/drawer/mdc-drawer.scss";
+@import "@material/mwc-drawer/src/mwc-drawer.scss"; // Variables: https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/_variables.scss
+@import "src/list/list.scss"; // For (default or slotted) drawer
+
+*[slot="title"] a {
+  color: var(--mdc-theme-on-primary);
+}
+*[slot="navigationIcon"] {
+  color: var(--mdc-theme-on-primary);
+}
