@@ -1,20 +1,16 @@
+// https://github.com/material-components/material-components-web/tree/master/packages/mdc-theme
 $mdc-theme-primary: rgb(18, 79, 120);
 $mdc-theme-on-primary: #fff;
-// $mdc-theme-secondary: #d1480e;
-// $mdc-theme-on-secondary: #fff;
-// $mdc-theme-accent: #d1480e;
+$mdc-theme-secondary: #fff;
+$mdc-theme-on-secondary: #000;
+$mdc-theme-accent: #d1480e;
 
 :host {
   --mdc-theme-primary: rgb(18, 79, 120);
   --mdc-theme-on-primary: #fff;
-  //   --mdc-theme-secondary: #d1480e;
-  //   --mdc-theme-on-secondary: #fff;
-  //   --mdc-theme-accent: #d1480e;
-  --mdc-theme-text-icon-on-background: rgb(18, 79, 120);
-}
-
-.mdc-list-item__graphic {
-  color: var(--mdc-theme-text-icon-on-background, rgba(0, 0, 0, 0.38));
+  --mdc-theme-secondary: #000;
+  --mdc-theme-on-secondary: #fff;
+  --mdc-theme-accent: #d1480e;
 }
 
 html,
@@ -22,7 +18,7 @@ body {
   margin: 0;
 }
 a {
-  color: var(--mdc-theme-text-icon-on-background);
+  color: var(--mdc-theme-primary);
   text-decoration: none;
 }
 @import "src/style/typography.scss";
