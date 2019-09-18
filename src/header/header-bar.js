@@ -27,7 +27,9 @@ export class HeaderBar extends LitElement {
     super();
     this.title = sitename;
     this.href = "#";
-    this.hasHeader = () => (this.drawerTitle ? true : false);
+    this.drawerHeading = sitename;
+    this.hasHeader = () => (this.drawerHeading ? true : false);
+    this.prominent = false;
   }
 
   async firstUpdated() {
