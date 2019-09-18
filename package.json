@@ -34,7 +34,7 @@
     "eslint": "eslint src",
     "pretest": "yarn eslint",
     "test": "yarn build",
-    "build": "cp index.html dist/ && yarn build-styles && yarn rollup -c",
+    "build": "cp index.html public/ && yarn build-styles && yarn rollup -c",
     "build-styles": "./src/style/build-styles"
   },
   "files": [
