@@ -1,5 +1,8 @@
 {
   "name": "@npolar/datacentre-mdc",
+  "engines": {
+    "node": "^12"
+  },
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
