@@ -16,17 +16,19 @@ export class HeaderBar extends LitElement {
 
   static get properties() {
     return {
-      title: { type: String },
+      heading: { type: String },
       href: { type: String },
-      drawerTitle: { type: String, attribute: "drawer-title" },
-      drawerSubtitle: { type: String, attribute: "drawer-subtitle" }
+      prominent: { type: Boolean },
+      drawerHeading: { type: String, attribute: "drawer-heading" },
+      drawerSubheading: { type: String, attribute: "drawer-subheading" }
     };
   }
 
   constructor() {
     super();
-    this.title = sitename;
+    this.heading = sitename;
     this.href = "#";
+
     this.drawerHeading = sitename;
     this.hasHeader = () => (this.drawerHeading ? true : false);
     this.prominent = false;
@@ -40,17 +42,29 @@ export class HeaderBar extends LitElement {
   }
 
   render() {
-    const { title, href, hasHeader, drawerTitle, drawerSubtitle } = this;
+    const {
+      heading,
+      href,
+      prominent,
+      hasHeader,
+      drawerHeading,
+      drawerSubheading
+    } = this;
     return html`
       <mwc-drawer ?hasHeader=${hasHeader()} type="dismissible">
-        <span slot="title">${drawerTitle}</span>
-        <span slot="subtitle">${drawerSubtitle}</span>
+        <span id="drawer-title" slot="title">
+          ${drawerHeading}
+        </span>
+        <span id="drawer-subtitle" slot="subtitle">${drawerSubheading}</span>
+
         <slot name="drawer">${drawer}</slot>
 
-        <div slot="appContent">
-          <mwc-top-app-bar>
+        <div slot="appContent" class="mdc-typography">
+          <mwc-top-app-bar ?prominent=${prominent}>
             <button-icon icon="menu" slot="navigationIcon"></button-icon>
-            <span slot="title"><a id="name" href="${href}">${title}</a></span>
+            <span slot="title">
+              <a id="name" href="${href}">${heading}</a>
+            </span>
             <slot name="main"></slot>
           </mwc-top-app-bar>
         </div>
