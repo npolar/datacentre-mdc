@@ -1,9 +1,24 @@
+// https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer
 @import "src/style/shared.scss";
 // @import "@material/drawer/mdc-drawer.scss";
-@import "@material/mwc-drawer/src/mwc-drawer.scss"; // Variables: https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/_variables.scss
-@import "src/list/list.scss"; // For (default or slotted) drawer
+@import "@material/mwc-drawer/src/mwc-drawer.scss";
+@import "src/list/list.scss"; // For default drawer
+
+.mdc-drawer__header {
+  background: var(--mdc-theme-secondary);
+}
+
+#drawer-title {
+  background: var(--mdc-theme-secondary);
+  color: var(--mdc-theme-on-secondary);
+}
+
+#drawer-subtitle {
+  color: var(--mdc-theme-accent);
+}
 
 *[slot="title"] a {
+  background: var(--mdc-theme-primary);
   color: var(--mdc-theme-on-primary);
 }
 *[slot="navigationIcon"] {

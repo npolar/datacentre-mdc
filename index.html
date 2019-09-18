@@ -15,28 +15,41 @@
     <header>
       <h1>header-bar</h1>
       <header-bar
-        name="header-bar"
-        drawer-title="Drawer's title"
+        title="header-bar"
+        drawer-title="Drawer title"
         drawer-subtitle="Subtitle"
       >
         <main slot="main">
           <section>
             <h1>button-mdc</h1>
-            <button-mdc>button-mdc</button-mdc>
+            <button-mdc primary>button-mdc</button-mdc>
             <button-mdc outlined>outlined</button-mdc>
             <button-mdc raised>raised</button-mdc>
+            <button-mdc dense>dense</button-mdc>
+            <button-mdc dense outlined>dense outlined</button-mdc>
+            <button-mdc dense raised>dense raised</button-mdc>
           </section>
           <section>
             <h1>button-icon</h1>
             <button-icon icon="menu"></button-icon>
             <button-icon class="warning" icon="warning"></button-icon>
           </section>
+          <section>
+            <h1>input-mdc</h1>
+            <input-mdc label="label" name="name"></input-mdc>
+            <input-password
+              label="current password"
+              name="password"
+            ></input-password>
+          </section>
         </main>
       </header-bar>
     </header>
 
-    <script type="module" src="src/header/header-bar.js"></script>
-    <script type="module" src="src/button/button-mdc.js"></script>
-    <script type="module" src="src/button/button-icon.js"></script>
+    <script type="module" src="header-bar.js"></script>
+    <script type="module" src="button-mdc.js"></script>
+    <script type="module" src="button-icon.js"></script>
+    <script type="module" src="input-mdc.js"></script>
+    <script type="module" src="input-password.js"></script>
   </body>
 </html>
