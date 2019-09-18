@@ -6,14 +6,15 @@
   ],
   "builds": [
     {
-      "src": "./dist/**",
-      "use": "@now/static"
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "public" }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/$1"
+      "dest": "public/$1"
     }
   ]
 }
