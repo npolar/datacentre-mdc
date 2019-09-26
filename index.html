@@ -6,50 +6,86 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
     <style>
-      .warning {
-        color: coral;
+      :root,body {
+        --mdc-theme-error: #b00020;
+        margin: 0;
+      }
+
+      button-mdc, button-fab, button-icon {
+        margin: 4px;
+        padding: 4px;
+      }
+      .danger {
+        --mdc-theme-on-primary: white;
+        --mdc-theme-primary: var(--mdc-theme-error)
+      }
+      .black-on-white {
+        --mdc-theme-on-secondary: black;
+        --mdc-theme-secondary: white;
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>header-bar</h1>
-      <header-bar
-        title="header-bar"
-        drawer-title="Drawer title"
-        drawer-subtitle="Subtitle"
-      >
-        <main slot="main">
-          <section>
-            <h1>button-mdc</h1>
-            <button-mdc primary>button-mdc</button-mdc>
-            <button-mdc outlined>outlined</button-mdc>
-            <button-mdc raised>raised</button-mdc>
-            <button-mdc dense>dense</button-mdc>
-            <button-mdc dense outlined>dense outlined</button-mdc>
-            <button-mdc dense raised>dense raised</button-mdc>
-          </section>
-          <section>
-            <h1>button-icon</h1>
+    <header-bar heading="header-bar (with default drawer)">
+      <main slot="main">
+        <section>
+          <h1>button-*</h1>
+          <div>
+            <p>button-mdc</p>
+            <div>
+              <button-mdc>button-mdc</button-mdc>
+              <button-mdc outlined>outlined</button-mdc>
+              <button-mdc raised>raised</button-mdc>
+              <button-mdc class="danger" raised>danger</button-mdc>
+            </div>
+            <div>
+              <p>icon</p>
+              <button-mdc icon="cloud">cloud</button-mdc>
+              <button-mdc icon="cloud" outlined>outlined</button-mdc>
+              <button-mdc icon="cloud" raised >raised</button-mdc>
+              <button-mdc class="danger" icon="cloud">danger</button-mdc>
+            </div>
+            <div>
+              <p>dense</p>
+              <button-mdc dense>dense</button-mdc>
+              <button-mdc dense outlined>dense outlined</button-mdc>
+              <button-mdc dense raised>dense raised</button-mdc>
+            </div>
+          </div>
+          <div>
+            <p>button-icon</p>
             <button-icon icon="menu"></button-icon>
-            <button-icon class="warning" icon="warning"></button-icon>
-          </section>
-          <section>
-            <h1>input-mdc</h1>
-            <input-mdc label="label" name="name"></input-mdc>
-            <input-password
-              label="current password"
-              name="password"
-            ></input-password>
-          </section>
-        </main>
-      </header-bar>
-    </header>
+            <button-icon class="danger" icon="warning"></button-icon>
+          </div>
+          <div>
+            <p>button-fab</p>
+            <button-fab icon="edit"></button-fab>
+            <button-fab icon="add" mini></button-fab>
+            <button-fab icon="cloud" extended label="Upload"></button-fab>
+            <button-fab icon="share" class="black-on-white"></button-fab>
+          </div>
+        </section>
+        <section>
+          <h1>input-*</h1>
+          <input-mdc id="MDC" label="label"></input-mdc>
+          <input-password
+            label="input-password"
+            name="password"
+          ></input-password>
+          <input-lock label="input-lock"></input-lock>
+        </section>
+      </main>
+    </header-bar>
 
     <script type="module" src="header-bar.js"></script>
     <script type="module" src="button-mdc.js"></script>
     <script type="module" src="button-icon.js"></script>
+    <script type="module" src="button-fab.js"></script>
     <script type="module" src="input-mdc.js"></script>
     <script type="module" src="input-password.js"></script>
+    <script type="module" src="input-lock.js"></script>
+    <script type="module">
+      const m = (document.querySelector("#MDC").value = "input-mdc");
+    </script>
   </body>
 </html>

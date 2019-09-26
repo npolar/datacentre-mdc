@@ -3,8 +3,10 @@ import liveServer from "rollup-plugin-live-server";
 const input = {
   "button-mdc": "src/button/button-mdc.js",
   "button-icon": "src/button/button-icon.js",
+  "button-fab": "src/button/button-fab.js",
   "header-bar": "src/header/header-bar.js",
   "input-mdc": "src/input/input-mdc.js",
+  "input-lock": "src/input/input-lock.js",
   "input-password": "src/input/input-password.js"
 };
 
