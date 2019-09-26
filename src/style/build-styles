@@ -6,7 +6,7 @@ bin="./node_modules/.bin"
 
 find ./src -name "*.scss" -print0 | while read -d $'\0' sassfile
 do
-  cssfile=`echo ${sassfile} | sed -e 's/.scss/.css/' | sed -e 's/src\//public\/css\//'`
+  cssfile=`echo ${sassfile} | sed -e 's/.scss/.css/' | sed -e 's/src\//dist\/css\//'`
   cssjsfile=`echo ${sassfile} | sed -e 's/.scss/-style.js/'`
 
   echo "Building ${sassfile} -> ${cssjsfile}"
