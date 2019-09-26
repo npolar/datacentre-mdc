@@ -1,4 +1,4 @@
-[datacentre-mdc](https://datacentre-mdc.conrad.now.sh)
+datacentre-mdc
 ==============
 
 [![Build Status](https://travis-ci.com/npolar/datacentre-mdc.svg?branch=master)](https://travis-ci.com/npolar/datacentre-mdc)

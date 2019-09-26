@@ -36,7 +36,8 @@
     "test": "yarn build",
     "prebuild": "mkdir -p dist && cp index.html dist/",
     "build": "yarn build-styles && yarn rollup -c",
-    "build-styles": "./src/style/build-styles"
+    "build-styles": "./src/style/build-styles",
+    "now": "yarn build && cp now.json dist/ && cd dist && now && cd -"
   },
   "files": [
     "dist"
