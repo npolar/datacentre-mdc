@@ -7,15 +7,18 @@ const input = {
   "input-mdc": "src/input/input-mdc.js",
   "input-password": "src/input/input-password.js"
 };
-const dir = "public";
 
+const dir = "dist";
+const plugins = [nodeResolve()];
 const output = { format: "esm", dir };
-const plugins = [
-  nodeResolve(),
-  liveServer({
-    root: dir,
+
+const { ROLLUP_WATCH } = process.env;
+if (ROLLUP_WATCH) {
+  const liveServerConfig = {
+    root: "dist",
     open: false,
     port: 10001
-  })
-];
+  };
+  plugins.push(liveServer(liveServerConfig));
+}
 export default { input, plugins, output };
