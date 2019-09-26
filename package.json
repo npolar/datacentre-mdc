@@ -1,8 +1,5 @@
 {
   "name": "@npolar/datacentre-mdc",
-  "engines": {
-    "node": "^10"
-  },
   "version": "0.0.0",
   "license": "MIT",
   "type": "module",
@@ -10,12 +7,12 @@
     "@material/list": "^3.2.0",
     "@material/mwc-button": "^0",
     "@material/mwc-drawer": "^0",
+    "@material/mwc-fab": "^0.8.0",
     "@material/mwc-icon": "^0",
     "@material/mwc-icon-button": "^0.8.0",
     "@material/mwc-icon-button-toggle": "^0",
     "@material/mwc-textfield": "^0",
     "@material/mwc-top-app-bar": "^0.8.0",
-    "@pika/web": "^0.6.1",
     "lit-element": "^2.1"
   },
   "browserslist": [
@@ -32,12 +29,13 @@
     "rollup-plugin-node-resolve": "^5"
   },
   "scripts": {
-    "dev": "yarn rollup -c -w",
+    "dev": "yarn prebuild && yarn rollup -c -w",
     "prepare": "yarn build-styles",
     "eslint": "eslint src",
     "pretest": "yarn eslint",
     "test": "yarn build",
-    "build": "cp index.html public/ && yarn build-styles && yarn rollup -c",
+    "prebuild": "mkdir -p dist && cp index.html dist/",
+    "build": "yarn build-styles && yarn rollup -c",
     "build-styles": "./src/style/build-styles"
   },
   "files": [
