@@ -3,7 +3,6 @@ import { html, LitElement } from "lit-element";
 import "@material/mwc-drawer";
 import "@material/mwc-top-app-bar-fixed";
 
-import "../menu/menu.js";
 import "../button/button-icon.js";
 
 import { style } from "./header-bar-style.js";
