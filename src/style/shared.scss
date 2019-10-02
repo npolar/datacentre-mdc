@@ -1,9 +1,4 @@
 // https://github.com/material-components/material-components-web/tree/master/packages/mdc-theme
-$mdc-theme-primary: rgb(18, 79, 120);
-$mdc-theme-on-primary: #fff;
-$mdc-theme-secondary: #fff;
-$mdc-theme-on-secondary: #000;
-$mdc-theme-accent: #d1480e;
 
 :host {
   --mdc-theme-primary: rgb(18, 79, 120);
@@ -11,12 +6,10 @@ $mdc-theme-accent: #d1480e;
   --mdc-theme-secondary: #000;
   --mdc-theme-on-secondary: #fff;
   --mdc-theme-accent: #d1480e;
-}
-
-html,
-body {
+  --mdc-theme-error: #b00020;
   margin: 0;
 }
+
 a {
   color: var(--mdc-theme-primary);
   text-decoration: none;
