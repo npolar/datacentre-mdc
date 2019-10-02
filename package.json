@@ -4,7 +4,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@material/list": "^3",
+    "@material/list": "3.2.0",
     "@material/mwc-base": "0.9.1",
     "@material/mwc-button": "0.9.1",
     "@material/mwc-drawer": "0.9.1",
@@ -14,8 +14,7 @@
     "@material/mwc-icon-button-toggle": "0.9.1",
     "@material/mwc-textfield": "0.9.1",
     "@material/mwc-top-app-bar-fixed": "0.9.1",
-    "@material/theme": "^3",
-    "@material/touch-target": "^4",
+    "@material/touch-target": "4.0.0-alpha.0",
     "lit-element": "2.2.1"
   },
   "browserslist": [
@@ -40,9 +39,5 @@
     "build": "yarn build-styles && yarn rollup -c",
     "build-styles": "./src/style/build-styles",
     "now": "yarn build && cp now.json dist/ && cd dist && now && cd -"
-  },
-  "files": [
-    "dist",
-    "src"
-  ]
+  }
 }
