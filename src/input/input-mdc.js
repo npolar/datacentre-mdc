@@ -27,11 +27,19 @@ export class Input extends TextFieldBase {
     //this.autocomplete = ""; // check datalist!
   }
 
+  firstUpdated() {
+    if (this.hasAttribute("fullwidth")) {
+      this.removeAttribute("outlined");
+    }
+    super.firstUpdated();
+  }
+
   updated(p) {
     // Needed or else the floating label does not float when setting value programmatically
     if (p.has("value") && "mdcFoundation" in this) {
       this.mdcFoundation.setValue(this.value);
     }
+    super.updated(p);
   }
   // Copied from [mwc-textfield-base.ts](https://github.com/material-components/material-components-web-components/blob/master/packages/textfield/src/mwc-textfield-base.ts)
   // to add attributes: "name", "autocomplete", "minlength", "minlength", "readonly"
