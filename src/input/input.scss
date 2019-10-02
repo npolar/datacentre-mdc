@@ -4,5 +4,5 @@
 
 // Sets icon color on toggle icon inputs
 :host mwc-icon-button-toggle {
-  color: rgb(22, 70, 104);
+  color: var(--mdc-theme-primary); //rgb(22, 70, 104);
 }

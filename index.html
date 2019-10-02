@@ -6,22 +6,31 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
     <style>
-      :root,body {
-        --mdc-theme-error: #b00020;
+      body {
         margin: 0;
       }
-
-      button-mdc, button-fab, button-icon {
+      main {
+        display: grid;
+      }
+      input-mdc,
+      input-password,
+      input-lock,
+      button-mdc,
+      button-fab,
+      button-icon {
         margin: 4px;
         padding: 4px;
       }
       .danger {
-        --mdc-theme-on-primary: white;
-        --mdc-theme-primary: var(--mdc-theme-error)
+        --mdc-theme-primary: var(--mdc-theme-error);
       }
       .black-on-white {
         --mdc-theme-on-secondary: black;
         --mdc-theme-secondary: white;
+      }
+      .accent {
+
+        --mdc-theme-primary: var(--mdc-theme-accent);
       }
     </style>
   </head>
@@ -36,14 +45,14 @@
               <button-mdc>button-mdc</button-mdc>
               <button-mdc outlined>outlined</button-mdc>
               <button-mdc raised>raised</button-mdc>
-              <button-mdc class="danger" raised>danger</button-mdc>
+              <button-mdc class="accent" raised>accent</button-mdc>
             </div>
             <div>
               <p>icon</p>
               <button-mdc icon="cloud">cloud</button-mdc>
               <button-mdc icon="cloud" outlined>outlined</button-mdc>
-              <button-mdc icon="cloud" raised >raised</button-mdc>
-              <button-mdc class="danger" icon="cloud">danger</button-mdc>
+              <button-mdc icon="cloud" raised>raised</button-mdc>
+              <button-mdc icon="error" class="danger" raised outlined >dangerous</button-mdc>
             </div>
             <div>
               <p>dense</p>
@@ -65,14 +74,23 @@
             <button-fab icon="share" class="black-on-white"></button-fab>
           </div>
         </section>
-        <section>
+        <section class="fullwidth">
           <h1>input-*</h1>
-          <input-mdc id="MDC" label="label"></input-mdc>
-          <input-password
-            label="input-password"
-            name="password"
-          ></input-password>
-          <input-lock label="input-lock"></input-lock>
+          <div>
+            <input-mdc
+              fullwidth
+              helper="Fullwidth helper text"
+              placeholder="fullwidth"
+            ></input-mdc>
+          </div>
+          <div>
+            <input-mdc id="MDC" label="label"></input-mdc>
+            <input-password
+              label="input-password"
+              name="password"
+            ></input-password>
+            <input-lock label="input-lock"></input-lock>
+          </div>
         </section>
       </main>
     </header-bar>

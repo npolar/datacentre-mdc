@@ -1,31 +1,32 @@
 {
   "name": "@npolar/datacentre-mdc",
-  "version": "0.0.0",
+  "version": "0.0.1-pre",
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@material/list": "^3.2.0",
-    "@material/mwc-button": "^0",
-    "@material/mwc-drawer": "^0",
-    "@material/mwc-fab": "^0.8.0",
-    "@material/mwc-icon": "^0",
-    "@material/mwc-icon-button": "^0.8.0",
-    "@material/mwc-icon-button-toggle": "^0",
-    "@material/mwc-textfield": "^0",
-    "@material/mwc-top-app-bar": "^0.8.0",
-    "lit-element": "^2.1"
+    "@material/list": "3.2.0",
+    "@material/mwc-base": "0.9.1",
+    "@material/mwc-button": "0.9.1",
+    "@material/mwc-drawer": "0.9.1",
+    "@material/mwc-fab": "0.9.1",
+    "@material/mwc-icon": "0.9.1",
+    "@material/mwc-icon-button": "0.9.1",
+    "@material/mwc-icon-button-toggle": "0.9.1",
+    "@material/mwc-textfield": "0.9.1",
+    "@material/mwc-top-app-bar-fixed": "0.9.1",
+    "@material/touch-target": "4.0.0-alpha.0",
+    "lit-element": "2.2.1"
   },
   "browserslist": [
     "chrome 69"
   ],
   "devDependencies": {
     "autoprefixer": "^9",
-    "es-dev-server": "^1",
     "eslint": "^6",
     "node-sass": "^4",
     "postcss-cli": "^6",
-    "rollup": "^1",
-    "rollup-plugin-live-server": "*",
+    "rollup": "^1.22",
+    "rollup-plugin-live-server": "^1",
     "rollup-plugin-node-resolve": "^5"
   },
   "scripts": {
@@ -38,9 +39,5 @@
     "build": "yarn build-styles && yarn rollup -c",
     "build-styles": "./src/style/build-styles",
     "now": "yarn build && cp now.json dist/ && cd dist && now && cd -"
-  },
-  "files": [
-    "dist",
-    "src"
-  ]
+  }
 }

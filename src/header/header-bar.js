@@ -1,11 +1,12 @@
-import "@material/mwc-drawer";
-import "@material/mwc-top-app-bar";
-import "@material/mwc-icon-button";
 import { html, LitElement } from "lit-element";
 
+import "@material/mwc-drawer";
+import "@material/mwc-top-app-bar-fixed";
+
 import "../button/button-icon.js";
+
 import { style } from "./header-bar-style.js";
-import { drawer } from "./drawer.js";
+import { drawer, drawerHeading, drawerSubheading } from "./drawer.js";
 
 const sitename = "Norwegian polar data centre";
 
@@ -28,10 +29,11 @@ export class HeaderBar extends LitElement {
     super();
     this.heading = sitename;
     this.href = "#";
-
-    this.drawerHeading = sitename;
+    this.drawerHeading = drawerHeading;
+    this.drawerSubheading = drawerSubheading;
     this.hasHeader = () => (this.drawerHeading ? true : false);
     this.prominent = false;
+    this.dense = false;
   }
 
   async firstUpdated() {
@@ -47,26 +49,25 @@ export class HeaderBar extends LitElement {
       href,
       prominent,
       hasHeader,
+      dense,
       drawerHeading,
       drawerSubheading
     } = this;
     return html`
       <mwc-drawer ?hasHeader=${hasHeader()} type="dismissible">
-        <span id="drawer-title" slot="title">
-          ${drawerHeading}
-        </span>
+        <span id="drawer-title" slot="title">${drawerHeading}</span>
         <span id="drawer-subtitle" slot="subtitle">${drawerSubheading}</span>
 
         <slot name="drawer">${drawer}</slot>
 
         <div slot="appContent" class="mdc-typography">
-          <mwc-top-app-bar ?prominent=${prominent}>
+          <mwc-top-app-bar-fixed ?prominent=${prominent} ?dense=${dense}>
             <button-icon icon="menu" slot="navigationIcon"></button-icon>
             <span slot="title">
               <a id="name" href="${href}">${heading}</a>
             </span>
             <slot name="main"></slot>
-          </mwc-top-app-bar>
+          </mwc-top-app-bar-fixed>
         </div>
       </mwc-drawer>
     `;
