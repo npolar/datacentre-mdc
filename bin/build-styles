@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+before='import { css } from "lit-element";
+export const style = css`'
+after='`;'
+bin="./node_modules/.bin"
+
+find ./src -name "*.scss" -not -name "_*" -print0 | while read -d $'\0' sassfile
+do
+  cssfile=`echo ${sassfile} | sed -e 's/.scss/.css/' | sed -e 's/src\//dist\/css\//'`
+  cssjsfile=`echo ${sassfile} | sed -e 's/.scss/-style.js/'`
+
+  echo "Building ${sassfile} -> ${cssjsfile}"
+  mkdir -p `dirname $cssfile`
+  css=`cat $sassfile \
+  | $bin/node-sass --output-style=compressed --include-path=./node_modules:./src \
+  | $bin/postcss --use autoprefixer`
+  echo $css  > $cssfile;
+  echo "$before$css$after" > $cssjsfile
+done
