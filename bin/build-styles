@@ -12,8 +12,8 @@ do
   echo "Building ${sassfile} -> ${cssjsfile}"
   mkdir -p `dirname $cssfile`
   css=`cat $sassfile \
-  | $bin/node-sass --output-style=compressed --include-path=./node_modules:./src \
-  | $bin/postcss --use autoprefixer`
+  | $bin/node-sass --omit-source-map-url --output-style=compressed --include-path=./node_modules:./src \
+  | $bin/postcss --use autoprefixer --no-map`
   echo $css  > $cssfile;
   echo "$before$css$after" > $cssjsfile
 done
