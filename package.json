@@ -1,5 +1,5 @@
 {
-  "name": "@npolar/datacentre-mdc",
+  "name": "@npolar/mdc",
   "version": "0.0.1-pre",
   "license": "MIT",
   "type": "module",
@@ -31,13 +31,11 @@
   },
   "scripts": {
     "dev": "yarn prebuild && yarn rollup -c -w",
-    "prepare": "yarn build-styles",
     "eslint": "eslint src",
     "pretest": "yarn eslint",
     "test": "yarn build",
-    "prebuild": "mkdir -p dist && cp index.html dist/",
-    "build": "yarn build-styles && yarn rollup -c",
-    "build-styles": "./src/style/build-styles",
+    "prebuild": "./bin/copy-assets && ./bin/build-styles",
+    "build": "yarn rollup -c",
     "now": "yarn build && cp now.json dist/ && cd dist && now && cd -"
   }
 }
