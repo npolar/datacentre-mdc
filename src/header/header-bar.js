@@ -2,7 +2,8 @@ import { html, LitElement } from "lit-element";
 
 import "@material/mwc-drawer";
 import "@material/mwc-top-app-bar-fixed";
-
+import "@material/mwc-icon-button";
+import "@material/mwc-icon-button-toggle";
 import "../button/button-icon.js";
 
 import { style } from "./header-bar-style.js";
@@ -28,7 +29,7 @@ export class HeaderBar extends LitElement {
   constructor() {
     super();
     this.heading = sitename;
-    this.href = "#";
+    this.href = "/";
     this.drawerHeading = drawerHeading;
     this.drawerSubheading = drawerSubheading;
     this.hasHeader = () => (this.drawerHeading ? true : false);
@@ -62,7 +63,14 @@ export class HeaderBar extends LitElement {
 
         <div slot="appContent" class="mdc-typography">
           <mwc-top-app-bar-fixed ?prominent=${prominent} ?dense=${dense}>
-            <button-icon icon="menu" slot="navigationIcon"></button-icon>
+            <mwc-icon-button-toggle
+              slot="navigationIcon"
+              onIcon="menu"
+              offIcon="close"
+              on
+            >
+            </mwc-icon-button-toggle>
+
             <span slot="title">
               <a id="name" href="${href}">${heading}</a>
             </span>
