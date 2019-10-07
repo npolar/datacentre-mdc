@@ -1,17 +1,17 @@
 <html>
   <head>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
+    <link rel="stylesheet" href="/font/material-icons.css" />
+    <link rel="stylesheet" href="/css/style/typography.css" />
+
     <style>
-      body {
+      html,
+      body,
+      main,
+      header-bar {
         margin: 0;
+        padding: 0;
       }
-      main {
-        display: grid;
-      }
+
       input-mdc,
       input-password,
       input-lock,
@@ -21,6 +21,7 @@
         margin: 4px;
         padding: 4px;
       }
+
       .danger {
         --mdc-theme-primary: var(--mdc-theme-error);
       }
@@ -29,7 +30,6 @@
         --mdc-theme-secondary: white;
       }
       .accent {
-
         --mdc-theme-primary: var(--mdc-theme-accent);
       }
     </style>
@@ -52,7 +52,9 @@
               <button-mdc icon="cloud">cloud</button-mdc>
               <button-mdc icon="cloud" outlined>outlined</button-mdc>
               <button-mdc icon="cloud" raised>raised</button-mdc>
-              <button-mdc icon="error" class="danger" raised outlined >dangerous</button-mdc>
+              <button-mdc icon="error" class="danger" raised outlined
+                >dangerous</button-mdc
+              >
             </div>
             <div>
               <p>dense</p>
