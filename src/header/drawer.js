@@ -1,5 +1,4 @@
 import { html } from "lit-element";
-import "";
 
 export const drawerHeading = `Norwegian Polar
 Data Centre`;
