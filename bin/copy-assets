@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+mkdir -p dist
+rm dist/* -rf
+cp index.html dist/
+cp -r ./asset/* dist # Font: Inter & Material Icons, img: icons
