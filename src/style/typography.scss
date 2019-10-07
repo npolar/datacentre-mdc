@@ -1,2 +1,22 @@
-$mdc-typography-font-family: unquote("Inter, sans-serif") !default;
+$mdc-typography-font-family: unquote("Inter var, sans-serif") !default;
+
+// The relative font URLs below work from the generated /css/style/typography.css
+// Use by including <link rel="stylesheet" href="/css/style/typography.css" />
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-style: normal;
+  font-named-instance: "Regular";
+  font-display: swap;
+  src: url("../../font/inter/Inter-upright.var.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-style: italic;
+  font-named-instance: "Italic";
+  font-display: swap;
+  src: url("../../font/inter/Inter-italic.var.woff2") format("woff2");
+}
+
 @import "@material/typography/mdc-typography.scss";
