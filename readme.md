@@ -1,7 +1,34 @@
-# datacentre-mdc
+# Material Design Components
 
-[![Build Status](https://travis-ci.com/npolar/datacentre-mdc.svg?branch=master)](https://travis-ci.com/npolar/datacentre-mdc)
+[![Build Status](https://travis-ci.com/npolar/mdc.svg?branch=master)](https://travis-ci.com/npolar/mdc)
 
-ES2017 web components for the [datacentre](https://github.com/npolar/datacentre) – built on top of [MDC](https://github.com/material-components/material-components-web/)/[MWC](https://github.com/material-components/material-components-web-components)
+ES2019 web components styled using [Material Components for the web](https://github.com/material-components/material-components-web) and powered by these great open source projects:
 
-[Demo](https://datacentre-mdc.npolar.now.sh)
+- [Material Web Components](https://github.com/material-components/material-components-web-components)
+- [LitElement](https://lit-element.polymer-project.org/)
+- [lit-html](https://lit-html.polymer-project.org/)
+- [Inter](https://rsms.me/inter/)
+- [Material Icons](https://material.io/resources/icons/?style=baseline)
+
+[Demo](https://mdc.npolar.now.sh)
+
+## Install
+
+```
+yarn add @npolar/mdc
+```
+
+## Self-hosted fonts
+
+To use self-hosted [Inter](https://rsms.me/inter/) and [Material Icons](https://material.io/resources/icons/?style=baseline) fonts,
+integrate the following two steps in your project, assuming your build output and webroot folder is `dist`:
+
+````sh
+mkdir -p dist/@npolar/mdc/font
+cp -r node_modules/@npolar/mdc/asset/font dist/@npolar/mdc
+```
+
+```html
+<link rel="stylesheet" href="/@npolar/mdc/css/style/material-icons.css" />
+<link rel="stylesheet" href="/@npolar/mdc/css/style/typography.css" />
+````
