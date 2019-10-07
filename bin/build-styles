@@ -4,7 +4,7 @@ export const style = css`'
 after='`;'
 bin="./node_modules/.bin"
 
-find ./src -name "*.scss" -print0 | while read -d $'\0' sassfile
+find ./src -name "*.scss" -not -name "_*" -print0 | while read -d $'\0' sassfile
 do
   cssfile=`echo ${sassfile} | sed -e 's/.scss/.css/' | sed -e 's/src\//dist\/css\//'`
   cssjsfile=`echo ${sassfile} | sed -e 's/.scss/-style.js/'`
@@ -12,8 +12,8 @@ do
   echo "Building ${sassfile} -> ${cssjsfile}"
   mkdir -p `dirname $cssfile`
   css=`cat $sassfile \
-  | $bin/node-sass --output-style=compressed --include-path=./node_modules:./src \
-  | $bin/postcss --use autoprefixer`
+  | $bin/node-sass --omit-source-map-url --output-style=compressed --include-path=./node_modules:./src \
+  | $bin/postcss --use autoprefixer --no-map`
   echo $css  > $cssfile;
   echo "$before$css$after" > $cssjsfile
 done

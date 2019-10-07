@@ -1,5 +1,5 @@
 {
-  "name": "datacentre-mdc",
+  "name": "mdc",
   "version": 2,
   "regions": ["bru"],
   "builds": [
