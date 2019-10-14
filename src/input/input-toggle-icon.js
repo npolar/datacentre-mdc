@@ -3,7 +3,7 @@ import "@material/mwc-icon-button-toggle";
 import { emit } from "../host.js";
 import { html } from "lit-html";
 
-// Outlined input field with (trailing*) toggle icon, use like:
+// Outlined input field with (trailing) toggle icon, use like:
 // <input-toggle-icon autocomplete="" onIcon="visibility" offIcon="visibility_off" label="Nice toggle?"></input-toggle-icon>
 //
 // Events: "input-toggle-icon" events are emitted on toggling with { isOn } as payload

@@ -6,3 +6,11 @@ export const emit = (host, name, detail) => {
   });
   host.dispatchEvent(event);
 };
+
+// toggle(e) {
+// data-toggle="search"
+//   const { toggle } = e.target.dataset;
+//   if ([true, false].includes(this[toggle])) {
+//     this[toggle] = !this[toggle];
+//   }
+// }

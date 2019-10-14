@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
-before='import { css } from "lit-element";
-export const style = css`'
+before='//Auto-generated: DO NOT EDIT (see `bin/build-styles`)
+import { css } from "lit-element";
+export default css`'
 after='`;'
 bin="./node_modules/.bin"
-
+dist="dist/@npolar/mdc"
 find ./src -name "*.scss" -not -name "_*" -print0 | while read -d $'\0' sassfile
 do
-  cssfile=`echo ${sassfile} | sed -e 's/.scss/.css/' | sed -e 's/src\//dist\/css\//'`
-  cssjsfile=`echo ${sassfile} | sed -e 's/.scss/-style.js/'`
+  cssfile=`echo ${sassfile} | sed -e 's/.scss/.css/' | sed -e 's/src\//dist\/@npolar\/mdc\/css\//'`
+  cssjsfile=`echo ${sassfile} | sed -e 's/.scss/-scss.js/'`
 
   echo "Building ${sassfile} -> ${cssjsfile}"
   mkdir -p `dirname $cssfile`
