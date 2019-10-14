@@ -1,30 +1,83 @@
 # Material Design Components
 
-[![Build Status](https://travis-ci.com/npolar/mdc.svg?branch=master)](https://travis-ci.com/npolar/mdc) [Demo](https://mdc.npolar.now.sh)
+[![Build Status](https://travis-ci.com/npolar/mdc.svg?branch=master)](https://travis-ci.com/npolar/mdc)
 
-ES2019 web components, built with [LitElement](https://lit-element.polymer-project.org/) and [lit-html](https://lit-html.polymer-project.org/) on top of:
+ECMAScript2019 web components, built with [LitElement](https://lit-element.polymer-project.org/) and [lit-html](https://lit-html.polymer-project.org/) on top of:
 
 - [Material Web Components](https://github.com/material-components/material-components-web-components)
 - [Material Components for the web](https://github.com/material-components/material-components-web)
-- [Inter](https://rsms.me/inter/)
-- [Material Icons](https://material.io/resources/icons/?style=baseline)
 
-## Install
+## Install & develop
 
 ```
-yarn add @npolar/mdc
+$ git clone git@github.com:npolar/mdc.git && cd mdc
+$ yarn
+$ yarn dev
 ```
 
-## Self-hosted fonts
+Live-server: http://localhost:7777 ([online version](https://mdc.npolar.now.sh))
 
-To use self-hosted [Inter](https://rsms.me/inter/) and [Material Icons](https://material.io/resources/icons/?style=baseline) fonts, you need to copy CSS and font files into your project's build / web root (here `dist`):
+## Quality assurrance
 
-````sh
-mkdir -p dist/@npolar/mdc/font
-cp -r node_modules/@npolar/mdc/asset/font dist/@npolar/mdc
+ES2019-compliance is enforced using [ESLint](https://eslint.org/). See [.eslintrc](.eslintrc.json)
+
 ```
-And, add links to the font stylesheets in your `<head>` element:
+yarn eslint
+```
+
+## Build
+
+The building [rolls up](https://rollupjs.org/guide/en/) each component into a standalone ES2019 module.
+
+```
+$ yarn build
+```
+
+**Bare specifiers**
+
+**Styles**
+
+- Compile SCSS to `lit-html` css templates, using node-sass
+  Bare specifiers a
+
+External dependencies, that are imported with `bare specifiers` are
+
+with 0 dependencies.
+This process also eliminatesThis process also elExternaBuild all components into standalone modules in `dist/@npolar/mdc` using:
+
+- is used to cBundling external dependencies, that are imported with `bare specifiers`, using
+
+- Copying static assets into the distribution folder
+
+## Use
+
+```sh
+$ cd ~/my-project
+$ yarn add https://github.com/npolar/mdc
+$ cd node_modules/@npolar/mdc && yarn && yarn prebuild && cd -
+
+```
+
+### Fonts
+
+Having 0 run-time dependencies means: bring ~~your own~~`@npolar/mdc`'s fonts.
+
+Two fonts are included in the `asset/font` folder:
+
+- The great variable width [Inter](https://rsms.me/inter/)
+- [Material Icons](https://material.io/resources/icons/?style=baseline) are provided in the `dist/@npolar/mdc/font/`
+
+To self-host these fonts, first copy the css files and the font definitions into your project's build / web root (here `dist` in `~/my-project`):
+
+```bash
+$ cd ~/my-project
+$ mkdir -p dist/@npolar/mdc
+$ cp -r node_modules/@npolar/mdc/asset/* dist/@npolar/mdc/
+```
+
+Then, add links to the font stylesheets in your `<head>` element:
+
 ```html
 <link rel="stylesheet" href="/@npolar/mdc/css/style/material-icons.css" />
 <link rel="stylesheet" href="/@npolar/mdc/css/style/typography.css" />
-````
+```

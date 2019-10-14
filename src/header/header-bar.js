@@ -1,15 +1,23 @@
 import { html, LitElement } from "lit-element";
+import { style } from "./header-bar-css.js";
+import { drawer } from "./drawer.js";
+const sitename = `Norwegian Polar Data Centre`;
+const subheading = `https://data.npolar.no`;
+const logo = "/@npolar/mdc/logo/norsk-polarinstitutt-logo-norsk.png";
+const headingHTML = ({ heading, href }) => {
+  return html`
+    <a id="name" href="${href}">${heading}</a>
+  `;
+};
+const searchHTML = ({ heading, href }) => {
+  return html`
+    <input type="text" class="search" .value=${heading} />
+  `;
+};
 
-import "@material/mwc-drawer";
-import "@material/mwc-top-app-bar-fixed";
-import "@material/mwc-icon-button";
-import "@material/mwc-icon-button-toggle";
-import "../button/button-icon.js";
-
-import { style } from "./header-bar-style.js";
-import { drawer, drawerHeading, drawerSubheading } from "./drawer.js";
-
-const sitename = "Norwegian polar data centre";
+const titleSlot = ({ searching, ...arg }) => {
+  return searching ? heading(arg) : heading(arg);
+};
 
 export class HeaderBar extends LitElement {
   static get styles() {
@@ -20,9 +28,7 @@ export class HeaderBar extends LitElement {
     return {
       heading: { type: String },
       href: { type: String },
-      prominent: { type: Boolean },
-      drawerHeading: { type: String, attribute: "drawer-heading" },
-      drawerSubheading: { type: String, attribute: "drawer-subheading" }
+      search: { type: Boolean }
     };
   }
 
@@ -30,11 +36,12 @@ export class HeaderBar extends LitElement {
     super();
     this.heading = sitename;
     this.href = "/";
-    this.drawerHeading = drawerHeading;
-    this.drawerSubheading = drawerSubheading;
     this.hasHeader = () => (this.drawerHeading ? true : false);
+    this.centerHeading = true;
     this.prominent = false;
     this.dense = false;
+    this.search = false;
+    this.logo = logo;
   }
 
   async firstUpdated() {
@@ -48,37 +55,28 @@ export class HeaderBar extends LitElement {
     const {
       heading,
       href,
+      logo,
       prominent,
       hasHeader,
       dense,
-      drawerHeading,
-      drawerSubheading
+      search,
+      toggle
     } = this;
     return html`
-      <mwc-drawer ?hasHeader=${hasHeader()} type="dismissible">
-        <span id="drawer-title" slot="title">${drawerHeading}</span>
-        <span id="drawer-subtitle" slot="subtitle">${drawerSubheading}</span>
+      <header class="header mdc-typography">
+        <a href=${href} class="logo">
+          ${sitename}
+        </a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
 
-        <slot name="drawer">${drawer}</slot>
+        <label class="menu-icon" for="menu-btn">
+          <span class="navicon"></span>
+        </label>
 
-        <div slot="appContent" class="mdc-typography">
-          <mwc-top-app-bar-fixed ?prominent=${prominent} ?dense=${dense}>
-            <mwc-icon-button-toggle
-              slot="navigationIcon"
-              onIcon="menu"
-              offIcon="close"
-              on
-            >
-            </mwc-icon-button-toggle>
-
-            <span slot="title">
-              <a id="name" href="${href}">${heading}</a>
-            </span>
-            <slot name="main"></slot>
-          </mwc-top-app-bar-fixed>
-        </div>
-      </mwc-drawer>
+        ${drawer}
+      </header>
     `;
   }
 }
 customElements.define("header-bar", HeaderBar);
+// <img src="${logo}" alt="logo" height="48px" />
