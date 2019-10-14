@@ -2,22 +2,21 @@ import { html, LitElement } from "lit-element";
 import { style } from "./header-bar-css.js";
 import { drawer } from "./drawer.js";
 const sitename = `Norwegian Polar Data Centre`;
-const subheading = `https://data.npolar.no`;
-const logo = "/@npolar/mdc/logo/norsk-polarinstitutt-logo-norsk.png";
-const headingHTML = ({ heading, href }) => {
-  return html`
-    <a id="name" href="${href}">${heading}</a>
-  `;
-};
-const searchHTML = ({ heading, href }) => {
-  return html`
-    <input type="text" class="search" .value=${heading} />
-  `;
-};
 
-const titleSlot = ({ searching, ...arg }) => {
-  return searching ? heading(arg) : heading(arg);
-};
+const logo = "/@npolar/mdc/logo/norsk-polarinstitutt-logo-norsk.png";
+// const headingHTML = ({ heading, href }) => {
+//   return html`
+//     <a id="name" href="${href}">${heading}</a>
+//   `;
+// };
+// const searchHTML = ({ heading, href }) => {
+//   return html`
+//     <input type="text" class="search" .value=${heading} />
+//   `;
+// };
+// const titleSlot = ({ searching, ...arg }) => {
+//   return searching ? heading(arg) : heading(arg);
+// };
 
 export class HeaderBar extends LitElement {
   static get styles() {
@@ -27,8 +26,8 @@ export class HeaderBar extends LitElement {
   static get properties() {
     return {
       heading: { type: String },
-      href: { type: String },
-      search: { type: Boolean }
+      href: { type: String }
+      //search: { type: Boolean }
     };
   }
 
@@ -54,18 +53,14 @@ export class HeaderBar extends LitElement {
   render() {
     const {
       heading,
-      href,
-      logo,
-      prominent,
-      hasHeader,
-      dense,
-      search,
-      toggle
+      href
+      //logo,
+      //search,
     } = this;
     return html`
       <header class="header mdc-typography">
         <a href=${href} class="logo">
-          ${sitename}
+          ${heading}
         </a>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
 
