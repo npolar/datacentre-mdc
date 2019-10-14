@@ -1,4 +1,4 @@
-import { style } from "./button-style.js";
+import style from "./button-scss.js";
 import { ButtonBase } from "@material/mwc-button/mwc-button-base.js";
 
 export class Button extends ButtonBase {

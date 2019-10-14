@@ -1,5 +1,5 @@
 import { TextFieldBase } from "@material/mwc-textfield/mwc-textfield-base.js";
-import { style } from "./input-style.js";
+import style from "./input-scss.js";
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -25,6 +25,10 @@ export class Input extends TextFieldBase {
     this.readonly = false;
     this.outlined = true;
     //this.autocomplete = ""; // check datalist!
+  }
+
+  get input() {
+    return this.mdcFoundation;
   }
 
   firstUpdated() {

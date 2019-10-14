@@ -10,7 +10,7 @@ const input = {
   "input-password": "src/input/input-password.js"
 };
 
-const dir = "dist";
+const dir = "dist/@npolar/mdc";
 const plugins = [nodeResolve()];
 const output = { format: "esm", dir };
 
@@ -19,7 +19,7 @@ if (ROLLUP_WATCH) {
   const liveServerConfig = {
     root: "dist",
     open: false,
-    port: 10001
+    port: 7777
   };
   plugins.push(liveServer(liveServerConfig));
 }
