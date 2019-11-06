@@ -114,12 +114,14 @@
         <select-enum name="area"
          enum='["Svalbard", "Jan Mayen", "Bouvetøya", "Peter I Øy", "Dronning Maud Land"]'>
         </select-enum>
+        <wl-select><option>OPTION0</option><option selected>OPTION1</option></wl-select>
       </section>
     </main>
 
     <script type="module" src="@npolar/mdc/header-bar.js"></script>
     <script type="module" src="@npolar/mdc/button-mdc.js"></script>
     <script type="module" src="@npolar/mdc/input-mdc.js"></script>
+
     <script type="module" src="@npolar/mdc/select-mdc.js"></script>
     <script type="module">
       const m = (document.querySelector("input-lock").value = "Read-only until unlocked…");
@@ -138,7 +140,7 @@
       // });
 
       window.addEventListener("DOMContentLoaded", async () => {
-        await customElements.whenDefined("select-enum");
+        await customElements.whenDefined("input-mdc");
         document.querySelector("body").removeAttribute("hidden");
       });
     </script>

@@ -1,63 +1,23 @@
-import "weightless/select";
-import { LitElement, html, css } from "lit-element";
-import { emit } from "../host.js";
-import { INPUT, CHANGE } from "../event.js";
+import { render } from "lit-html";
+import { Select } from "./select.js";
 import { options } from "./option-html.js";
 
-// Single select list of options
-// @todo i18n...
-// Use:
+// Convenience element that inject an <option> element for each enum member
 // <select-enum name="area"
 //  enum='["Svalbard", "Jan Mayen", "Bouvetøya", "Peter I Øy", "Dronning Maud Land"]'>
 // </select-enum>
-export class SelectEnum extends LitElement {
+export class SelectEnum extends Select {
   static get properties() {
+    const reflect = true;
     return {
-      name: { type: String },
-      value: { type: String },
-      enum: { type: Array },
-      translations: { type: Map }
+      ...super.properties,
+      enum: { type: Array }
     };
   }
 
-  // [CSS vars](https://github.com/andreasbm/weightless/tree/master/src/lib/select#-css-custom-properties)
-  static get styles() {
-    return [
-      css`
-        :host {
-          --input-font-family: "Inter var";
-          --input-color: var(--mdc-theme-secondary);
-          --input-label-color: var(--mdc-theme-primary);
-          --select-arrow-height: 4;
-        }
-      `
-    ];
-  }
-
-  constructor() {
-    super();
-    this.outlined = true;
-    this.autocomplete = "off";
-  }
-
-  render() {
-    const { name, label, value, outlined, autocomplete } = this;
-    return html`
-      <wl-select
-        ?outlined==${outlined}
-        autocomplete=${autocomplete}
-        label=${label || name || ""}
-        name="${name || ""}"
-      >
-        ${options(value, { enum: this.enum })}
-      </wl-select>
-    `;
-  }
-
   firstUpdated() {
-    const select = this.renderRoot.firstElementChild;
-    select.addEventListener("input", () => emit(this, INPUT));
-    select.addEventListener("change", () => emit(this, CHANGE));
+    const select = this.renderRoot.querySelector("select");
+    render(options(this.value, { enum: this.enum }), select);
     super.firstUpdated();
   }
 }
