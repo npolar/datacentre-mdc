@@ -4,7 +4,7 @@ import liveServer from "rollup-plugin-live-server";
 const input = {
   "button-mdc": "src/button/exports.js",
   "input-mdc": "src/input/exports.js",
-  //"select-mdc": "src/select/exports.js",
+  "select-mdc": "src/select/exports.js",
   "header-bar": "src/header/header-bar.js"
 };
 
