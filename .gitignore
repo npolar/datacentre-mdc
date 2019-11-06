@@ -1,10 +1,8 @@
-# Logs
 *.log
 yarn.lock
 yarn-error.log*
 coverage
 dist
 node_modules
-src/**/*-style.js
 src/**/*-scss.js
 _*
