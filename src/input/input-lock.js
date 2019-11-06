@@ -18,14 +18,20 @@ export class InputLock extends InputToggleIcon {
       t.on = true;
       this.lock();
     });
+    // When disabled, it's impossible to unlock, so first un-disable
+    this.addEventListener("click", () => {
+      this.disabled = false;
+    });
   }
 
   lock() {
     this.readonly = true;
+    this.disabled = true;
     this.on = true;
   }
   unlock() {
     this.readonly = false;
+    this.disabled = false;
     this.on = false;
   }
 }
