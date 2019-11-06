@@ -1,7 +1,9 @@
 import { TextFieldBase } from "@material/mwc-textfield/mwc-textfield-base.js";
-import style from "./input-scss.js";
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
+import { emit } from "../host.js";
+import { INPUT, CHANGE } from "../event.js";
+import style from "./input-scss.js";
 
 export class Input extends TextFieldBase {
   static get styles() {
@@ -9,14 +11,16 @@ export class Input extends TextFieldBase {
   }
 
   static get properties() {
+    const reflect = true;
     return {
       ...super.properties,
       value: { type: String },
-      autocomplete: { type: String },
-      minlength: { type: Number },
-      maxlength: { type: Number },
-      name: { type: String, reflect: true },
-      readonly: { type: Boolean }
+      autocomplete: { type: String, reflect },
+      minlength: { type: Number, reflect },
+      maxlength: { type: Number, reflect },
+      name: { type: String, reflect },
+      readonly: { type: Boolean, reflect },
+      autofocus: { type: Boolean, reflect }
     };
   }
 
@@ -24,7 +28,8 @@ export class Input extends TextFieldBase {
     super();
     this.readonly = false;
     this.outlined = true;
-    //this.autocomplete = ""; // check datalist!
+    this.autofocus = false;
+    this.autocomplete = "off"; // @todo check datalist!
   }
 
   get input() {
@@ -35,6 +40,10 @@ export class Input extends TextFieldBase {
     if (this.hasAttribute("fullwidth")) {
       this.removeAttribute("outlined");
     }
+
+    const input = this.renderRoot.querySelector("input");
+    input.addEventListener("input", () => emit(this, INPUT));
+    input.addEventListener("change", () => emit(this, CHANGE));
     super.firstUpdated();
   }
 

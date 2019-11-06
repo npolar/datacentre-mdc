@@ -17,16 +17,16 @@
       input-mdc,
       input-password,
       input-lock,
+      input-search,
       button-mdc,
       button-fab,
       button-icon {
-        margin: 4px;
-        padding: 4px;
+        /* margin: 4px;
+        padding: 4px; */
       }
 
       main {
-        margin: 0;
-        padding-top: 70px;
+        padding-top: 79px;
       }
 
       .danger {
@@ -36,17 +36,20 @@
         --mdc-theme-on-secondary: black;
         --mdc-theme-secondary: white;
       }
-      .accent {
-        --mdc-theme-primary: var(--mdc-theme-accent);
+      ._2ndary {
+        --mdc-theme-primary: var(--mdc-theme-secondary);
       }
       .mdc-text-field__input {
         color: blue;
       }
+      header-bar: {
+        --mdc-theme-surface: #000;
+      }
     </style>
   </head>
-  <body>
+  <body hidden>
 
-    <header-bar heading="header-bar"></header-bar>
+    <header-bar heading="header-bar"><span slot="search"></span></header-bar>
     <main>
       <section>
         <h1>button-*</h1>
@@ -54,7 +57,7 @@
             <button-mdc>button-mdc</button-mdc>
             <button-mdc outlined>outlined</button-mdc>
             <button-mdc raised>raised</button-mdc>
-            <button-mdc class="accent" raised>accent</button-mdc>
+            <button-mdc class="_2ndary" raised>secondary</button-mdc>
           </div>
           <div>
             <p>icon</p>
@@ -91,13 +94,14 @@
         <div>
           <input-mdc
             fullwidth
+            name="fullwidth"
             helper="Fullwidth helper text"
             placeholder="fullwidth"
           ></input-mdc>
         </div>
         <div>
           <input-mdc id="MDC" label="label"></input-mdc>
-          <input-search label="search"></input-search>
+          <input-search name="search" label="search"></input-search>
           <input-password
             label="input-password"
             name="password"
@@ -106,55 +110,37 @@
         </div>
       </section>
       <section>
+        <h1>select-*</h1>
+        <select-enum name="area"
+         enum='["Svalbard", "Jan Mayen", "Bouvetøya", "Peter I Øy", "Dronning Maud Land"]'>
+        </select-enum>
+      </section>
     </main>
 
     <script type="module" src="@npolar/mdc/header-bar.js"></script>
     <script type="module" src="@npolar/mdc/button-mdc.js"></script>
-    <script type="module" src="@npolar/mdc/button-icon.js"></script>
-    <script type="module" src="@npolar/mdc/button-fab.js"></script>
     <script type="module" src="@npolar/mdc/input-mdc.js"></script>
-    <!-- <script type="module" src="@npolar/mdc/input-search.js"></script> -->
-    <script type="module" src="@npolar/mdc/input-password.js"></script>
-    <script type="module" src="@npolar/mdc/input-lock.js"></script>
+    <!-- <script type="module" src="@npolar/mdc/select-mdc.js"></script> -->
     <script type="module">
-      const m = (document.querySelector("#MDC").value = "input-mdc");
-      window.addEventListener("DOMContenLoaded", () =>
-        document.querySelector("header-bar").removeAttribute("hidden")
-      );
+      const m = (document.querySelector("input-lock").value = "Read-only until unlocked…");
+      for (const button of document.querySelectorAll("button-mdc,button-fab,button-icon")) {
+        button.addEventListener("click", (e) => {
+          console.warn("click",e);
+        });
+      }
+      window.addEventListener("input", (e) => {
+        const [elmt]=e.composedPath();
+        console.warn("input",elmt.name, elmt.value);
+      });
+      // window.addEventListener("@npolar/input", (e) => {
+      //   const [elmt]=e.composedPath();
+      //   console.warn("@npolar/input",elmt.value);
+      // });
+
+      window.addEventListener("DOMContentLoaded", async () => {
+        await customElements.whenDefined("select-enum");
+        document.querySelector("body").removeAttribute("hidden");
+      });
     </script>
   </body>
 </html>
-
-<!--
-
-<div>
-  <p>button-mdc</p>
-    <div>
-      <button-mdc>button-mdc</button-mdc>
-      <button-mdc outlined>outlined</button-mdc>
-      <button-mdc raised>raised</button-mdc>
-      <button-mdc class="accent" raised>accent</button-mdc>
-    </div>
-    <div>
-      <p>icon</p>
-      <button-mdc icon="cloud">cloud</button-mdc>
-      <button-mdc icon="cloud" outlined>outlined</button-mdc>
-      <button-mdc icon="cloud" raised>raised</button-mdc>
-      <button-mdc icon="error" class="danger" raised outlined
-        >dangerous</button-mdc
-      >
-    </div>
-    <div>
-      <p>dense</p>
-      <button-mdc dense>dense</button-mdc>
-      <button-mdc dense outlined>dense outlined</button-mdc>
-      <button-mdc dense raised>dense raised</button-mdc>
-    </div>
-  </div>
-  <div>
-    <p>button-icon</p>
-    <button-icon icon="menu"></button-icon>
-    <button-icon class="danger" icon="warning"></button-icon>
-  </div>
->>>>>>> Stashed changes
--->

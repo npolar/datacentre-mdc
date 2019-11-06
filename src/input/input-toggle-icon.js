@@ -1,4 +1,4 @@
-import { Input } from "./input-mdc.js";
+import { Input } from "./input.js";
 import "@material/mwc-icon-button-toggle";
 import { emit } from "../host.js";
 import { html } from "lit-html";

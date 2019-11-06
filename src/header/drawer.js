@@ -1,30 +1,20 @@
 import { html } from "lit-element";
-
+import { a } from "../list/li.js";
 const cssclass = "mdc-list-item";
+const icon = "subdirectory_arrow_right";
 
-const buttonIcon = icon =>
-  html`
-    <button-icon icon=${icon}></button-icon>
-  `;
-
-export const ali = (text, { href, cssclass, icon, tabindex }) => html`
-  <a class="${cssclass}" href=${href} tabindex=${tabindex === 0 ? 0 : ""}>
-    ${icon ? buttonIcon(icon) : ""}
-    <li>${text}</li>
-  </a>
-`;
 export const footer = html`
-  ${ali("Applications", {
+  ${a("Apps", {
     href: "/applications",
     icon: "apps",
     cssclass: `${cssclass} footer`
   })}
-  ${ali("Preferences", {
+  ${a("Preferences", {
     href: "/preferences",
     icon: "settings",
     cssclass: `${cssclass} footer`
   })}
-  ${ali("Sign in", {
+  ${a("Sign in", {
     href: "/sign-in",
     icon: "account_box",
     cssclass: `${cssclass} footer`
@@ -33,22 +23,20 @@ export const footer = html`
 
 export const drawer = html`
   <ul class="menu mdc-list">
-    ${ali("Dataset catalogue", {
+    ${a("Data catalogue", {
       href: "/dataset",
-      icon: false,
+      icon: "home",
       tabindex: 0,
       cssclass
     })}
-    ${ali("Data APIs", {
+    ${a("Machine-readable data", {
       href: "/api",
+      icon,
       cssclass
     })}
-    ${ali("Data policy", {
-      href: "/about/data-policy",
-      cssclass
-    })}
-    ${ali("Data publishing guides", {
-      href: "/guide",
+    ${a("Publish data", {
+      href: "/publish",
+      icon,
       cssclass
     })}
     <hr class="mdc-list-divider" />
@@ -56,5 +44,4 @@ export const drawer = html`
       ${footer}
     </span>
   </ul>
-  <nav></nav>
 `;
