@@ -12,6 +12,7 @@
       header-bar {
         margin: 0;
         padding: 0;
+        --mdc-theme-primary: var(--mdc-theme-secondary);
       }
 
       input-mdc,
@@ -26,7 +27,7 @@
       }
 
       main {
-        padding-top: 79px;
+        padding-top: 52px;
       }
 
       .danger {
@@ -48,16 +49,47 @@
     </style>
   </head>
   <body hidden>
-
-    <header-bar heading="header-bar"><span slot="search"></span></header-bar>
+    <header-bar  id="npolar-mdc" href="#npolar-mdc" heading="@npolar/mdc" fixed dark links='[{"text":"Click me", "href": "#"}]'></header-bar>
     <main>
+
+      <section>
+        <h1>select-*</h1>
+        <select-enum
+          name="area"
+          label="area"
+          enum='["Svalbard", "Jan Mayen", "Bouvetøya", "Peter I Øy", "Dronning Maud Land"]'
+        >
+        </select-enum>
+      </section>
+
+      <section>
+        <h1>input-*</h1>
+        <div>
+          <input-mdc
+            fullwidth
+            name="fullwidth"
+            helper="Fullwidth helper text"
+            placeholder="fullwidth"
+          ></input-mdc>
+        </div>
+        <div>
+          <input-mdc id="MDC" label="label"></input-mdc>
+          <input-search name="search" label="search"></input-search>
+          <input-password
+            label="input-password"
+            name="password"
+          ></input-password>
+          <input-lock label="input-lock"></input-lock>
+        </div>
+      </section>
+
       <section>
         <h1>button-*</h1>
           <div>
             <button-mdc>button-mdc</button-mdc>
             <button-mdc outlined>outlined</button-mdc>
             <button-mdc raised>raised</button-mdc>
-            <button-mdc class="_2ndary" raised>secondary</button-mdc>
+            <button-mdc id="dark-light" class="_2ndary" raised>secondary</button-mdc>
           </div>
           <div>
             <p>icon</p>
@@ -89,33 +121,8 @@
           <button-fab icon="share" class="black-on-white"></button-fab>
         </div>
       </section>
-      <section>
-        <h1>input-*</h1>
-        <div>
-          <input-mdc
-            fullwidth
-            name="fullwidth"
-            helper="Fullwidth helper text"
-            placeholder="fullwidth"
-          ></input-mdc>
-        </div>
-        <div>
-          <input-mdc id="MDC" label="label"></input-mdc>
-          <input-search name="search" label="search"></input-search>
-          <input-password
-            label="input-password"
-            name="password"
-          ></input-password>
-          <input-lock label="input-lock"></input-lock>
-        </div>
-      </section>
-      <section>
-        <h1>select-*</h1>
-        <select-enum name="area"
-         enum='["Svalbard", "Jan Mayen", "Bouvetøya", "Peter I Øy", "Dronning Maud Land"]'>
-        </select-enum>
-        <wl-select><option>OPTION0</option><option selected>OPTION1</option></wl-select>
-      </section>
+
+
     </main>
 
     <script type="module" src="@npolar/mdc/header-bar.js"></script>
@@ -124,21 +131,26 @@
 
     <script type="module" src="@npolar/mdc/select-mdc.js"></script>
     <script type="module">
-      const m = (document.querySelector("input-lock").value = "Read-only until unlocked…");
-      for (const button of document.querySelectorAll("button-mdc,button-fab,button-icon")) {
-        button.addEventListener("click", (e) => {
-          console.warn("click",e);
+
+      const headerBar = document.querySelector("header-bar");
+      headerBar.addEventListener("click",
+        () => headerBar.dark=!headerBar.dark
+      );
+
+      document.querySelector("input-lock").value = "Read-only until unlocked…";
+
+      for (const button of document.querySelectorAll(
+        "button-mdc,button-fab,button-icon"
+      )) {
+        button.addEventListener("click", e => {
+          console.log("click", e);
         });
       }
-      window.addEventListener("input", (e) => {
-        const [elmt]=e.composedPath();
-        console.warn("input",elmt.name, elmt.value);
+      window.addEventListener("input", e => {
+        const [elmt] = e.composedPath();
+        const {name,value}=elmt;
+        console.log("input", {name,value});
       });
-      // window.addEventListener("@npolar/input", (e) => {
-      //   const [elmt]=e.composedPath();
-      //   console.warn("@npolar/input",elmt.value);
-      // });
-
       window.addEventListener("DOMContentLoaded", async () => {
         await customElements.whenDefined("input-mdc");
         document.querySelector("body").removeAttribute("hidden");
