@@ -1,11 +1,10 @@
-# Material Design Components
-
-[![Build Status](https://travis-ci.com/npolar/mdc.svg?branch=master)](https://travis-ci.com/npolar/mdc)
+# @npolar/mdc – material design components
 
 ECMAScript2019 web components, built with [LitElement](https://lit-element.polymer-project.org/) and [lit-html](https://lit-html.polymer-project.org/) on top of:
 
 - [Material Web Components](https://github.com/material-components/material-components-web-components)
 - [Material Components for the web](https://github.com/material-components/material-components-web)
+- [Weightless](https://weightless.dev)
 
 ## Install & develop
 
@@ -20,6 +19,8 @@ Live-server: http://localhost:7777 ([online version](https://mdc.npolar.now.sh))
 ## Quality assurrance
 
 ES2019-compliance is enforced using [ESLint](https://eslint.org/). See [.eslintrc](.eslintrc.json)
+
+[![Build Status](https://travis-ci.com/npolar/mdc.svg?branch=master)](https://travis-ci.com/npolar/mdc)
 
 ```
 yarn eslint
@@ -64,8 +65,8 @@ Having 0 run-time dependencies means: bring ~~your own~~`@npolar/mdc`'s fonts.
 
 Two fonts are included in the `asset/font` folder:
 
-- The great variable width [Inter](https://rsms.me/inter/)
-- [Material Icons](https://material.io/resources/icons/?style=baseline) are provided in the `dist/@npolar/mdc/font/`
+- [Inter](https://rsms.me/inter/)
+- [Material Icons](https://material.io/resources/icons/?style=baseline)
 
 To self-host these fonts, first copy the css files and the font definitions into your project's build / web root (here `dist` in `~/my-project`):
 
