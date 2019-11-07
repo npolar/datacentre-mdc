@@ -1,5 +1,7 @@
 # @npolar/mdc – material design components
 
+![image](https://user-images.githubusercontent.com/35185/68395587-4ee7cb00-0170-11ea-8703-4cb2d5156c95.png)
+
 ECMAScript2019 web components, built with [LitElement](https://lit-element.polymer-project.org/) and [lit-html](https://lit-html.polymer-project.org/) on top of:
 
 - [Material Web Components](https://github.com/material-components/material-components-web-components)
@@ -14,7 +16,7 @@ $ yarn
 $ yarn dev
 ```
 
-Live-server: http://localhost:7777 ([online version](https://mdc.npolar.now.sh))
+Live-server: http://localhost:7777
 
 ## Quality assurrance
 
