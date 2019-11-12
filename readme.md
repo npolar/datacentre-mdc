@@ -1,14 +1,13 @@
 # @npolar/mdc – material design components
 
-![image](https://user-images.githubusercontent.com/35185/68395587-4ee7cb00-0170-11ea-8703-4cb2d5156c95.png)
+ECMAScript2019 web components: [demo](https://mdc.npolar.now.sh)
 
-ECMAScript2019 web components, built with [LitElement](https://lit-element.polymer-project.org/) and [lit-html](https://lit-html.polymer-project.org/) on top of:
+Built with [LitElement](https://lit-element.polymer-project.org/) and [lit-html](https://lit-html.polymer-project.org/) on top of:
 
 - [Material Web Components](https://github.com/material-components/material-components-web-components)
 - [Material Components for the web](https://github.com/material-components/material-components-web)
-- [Weightless](https://weightless.dev)
 
-## Install & develop
+## Develop
 
 ```
 $ git clone git@github.com:npolar/mdc.git && cd mdc
@@ -52,11 +51,11 @@ This process also eliminatesThis process also elExternaBuild all components into
 
 - Copying static assets into the distribution folder
 
-## Use
+## Install/use
 
 ```sh
 $ cd ~/my-project
-$ yarn add https://github.com/npolar/mdc
+$ yarn add https://github.com/npolar/mdc#v0.0.1
 $ cd node_modules/@npolar/mdc && yarn && yarn prebuild && cd -
 
 ```

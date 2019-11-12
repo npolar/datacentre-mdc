@@ -27,10 +27,18 @@ export class Input extends TextFieldBase {
   constructor() {
     super();
     this.readonly = false;
+    this.disabled = false;
     this.outlined = true;
     this.autofocus = false;
     this.autocomplete = "off"; // @todo check datalist!
   }
+
+  // <wl-textfield outlined label="Datalist" list="datalist"></wl-textfield>
+  // <datalist id="datalist">
+  //    <option value="Option 1"></option>
+  //    <option value="Option 2"></option>
+  //    <option value="Option 3"></option>
+  // </datalist>
 
   get input() {
     return this.mdcFoundation;
@@ -55,28 +63,8 @@ export class Input extends TextFieldBase {
     super.updated(p);
   }
   // Copied from [mwc-textfield-base.ts](https://github.com/material-components/material-components-web-components/blob/master/packages/textfield/src/mwc-textfield-base.ts)
-  // to add attributes: "name", "autocomplete", "minlength", "minlength", "readonly"
+  // to add attributes: "autocomplete", "autofocus", "minlength", "minlength", "name", "readonly"
   // Parent's [readme](https://github.com/material-components/material-components-web-components/tree/master/packages/textfield)
-  //
-  // protected renderInput() {
-  //   const maxOrUndef = this.maxLength === -1 ? undefined : this.maxLength;
-  //   return html`
-  //     <input
-  //         id="text-field"
-  //         class="mdc-text-field__input"
-  //         type="${this.type}"
-  //         .value="${this.value}"
-  //         ?disabled="${this.disabled}"
-  //         placeholder="${this.placeholder}"
-  //         ?required="${this.required}"
-  //         maxlength="${ifDefined(maxOrUndef)}"
-  //         pattern="${ifDefined(this.pattern ? this.pattern : undefined)}"
-  //         min="${ifDefined(this.min === '' ? undefined : this.min as number)}"
-  //         max="${ifDefined(this.max === '' ? undefined : this.max as number)}"
-  //         step="${ifDefined(this.step === null ? undefined : this.step)}"
-  //         @input="${this.handleInputChange}"
-  //         @blur="${this.onInputBlur}">`;
-  // }
   renderInput() {
     return html`
       <input
@@ -88,6 +76,7 @@ export class Input extends TextFieldBase {
         ?disabled=${this.disabled}
         ?readonly=${this.readonly}
         ?required=${this.required}
+        ?autofocus=${this.autofocus}
         pattern=${ifDefined(this.pattern ? this.pattern : undefined)}
         placeholder=${ifDefined(
           this.placeholder ? this.placeholder : undefined

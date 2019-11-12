@@ -9,7 +9,7 @@ export const options = (value, schema = {}) => {
   return (schema.enum || []).map(
     option =>
       html`
-        <option value="${option}" ?selected=${value === option}>
+        <option value="${option}" ?selected=${value === option} role="option">
           ${option}
         </option>
       `

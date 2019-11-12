@@ -3,12 +3,14 @@ import { Select } from "./select.js";
 import { options } from "./option-html.js";
 
 // Convenience element that inject an <option> element for each enum member
+// Use:
 // <select-enum name="area"
 //  enum='["Svalbard", "Jan Mayen", "Bouvetøya", "Peter I Øy", "Dronning Maud Land"]'>
 // </select-enum>
+// @todo SelectEnum i18n
+// @todo SelectEnum: move render of options to parent
 export class SelectEnum extends Select {
   static get properties() {
-    const reflect = true;
     return {
       ...super.properties,
       enum: { type: Array }

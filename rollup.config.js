@@ -3,9 +3,11 @@ import { eslint } from "rollup-plugin-eslint";
 import liveServer from "rollup-plugin-live-server";
 const input = {
   "button-mdc": "src/button/exports.js",
+  //"card-mdc": "src/card/exports.js",
   "input-mdc": "src/input/exports.js",
   "select-mdc": "src/select/exports.js",
-  "header-bar": "src/header/header-bar.js"
+  "nav-mdc": "src/nav/exports.js",
+  demo: "src/demo.js"
 };
 
 const dir = "dist/@npolar/mdc";
