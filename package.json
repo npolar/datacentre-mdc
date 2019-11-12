@@ -4,19 +4,20 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@material/card": "^3.2.0",
-    "@material/list": "3.2.0",
-    "@material/mwc-base": "0.10",
-    "@material/mwc-button": "0.10",
-    "@material/mwc-fab": "0.10",
-    "@material/mwc-icon": "0.10",
-    "@material/mwc-icon-button": "0.10",
-    "@material/mwc-icon-button-toggle": "0.10",
-    "@material/mwc-textfield": "0.10",
-    "@material/select": "^3.2.0",
-    "@material/touch-target": "4.0.0-alpha.0",
-    "lit-element": "2.2.1",
-    "weightless": "^0.0.36"
+    "@material/base": "4.0.0",
+    "@material/card": "4.0.0",
+    "@material/list": "4.0.0",
+    "@material/select": "*",
+    "@material/touch-target": "*",
+    "@material/mwc-base": "*",
+    "@material/mwc-button": "*",
+    "@material/mwc-fab": "*",
+    "@material/mwc-icon": "*",
+    "@material/mwc-icon-button": "*",
+    "@material/mwc-icon-button-toggle": "*",
+    "@material/mwc-textfield": "*",
+    "lit-element": "=2.2.1",
+    "weightless": "=0.0.36"
   },
   "browserslist": [
     "chrome 69"

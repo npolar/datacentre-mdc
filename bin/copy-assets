@@ -2,5 +2,11 @@
 dist=dist/@npolar/mdc
 mkdir -p $dist
 rm $dist/* -rf
-cp index.html dist/
-cp -r ./asset/* $dist # Font: Inter & Material Icons, img: icons
+
+# Web root
+cp ./asset/index.html dist/
+cp ./asset/robots.txt dist/
+cp ./asset/favicon.ico dist/
+
+# Other assets into /@npolar/mdc
+cp -r ./asset/* $dist

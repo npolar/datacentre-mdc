@@ -1,13 +1,13 @@
-# Material Design Components
+# @npolar/mdc – material design components
 
-[![Build Status](https://travis-ci.com/npolar/mdc.svg?branch=master)](https://travis-ci.com/npolar/mdc)
+ECMAScript2019 web components: [demo](https://mdc.npolar.now.sh)
 
-ECMAScript2019 web components, built with [LitElement](https://lit-element.polymer-project.org/) and [lit-html](https://lit-html.polymer-project.org/) on top of:
+Built with [LitElement](https://lit-element.polymer-project.org/) and [lit-html](https://lit-html.polymer-project.org/) on top of:
 
 - [Material Web Components](https://github.com/material-components/material-components-web-components)
 - [Material Components for the web](https://github.com/material-components/material-components-web)
 
-## Install & develop
+## Develop
 
 ```
 $ git clone git@github.com:npolar/mdc.git && cd mdc
@@ -15,11 +15,13 @@ $ yarn
 $ yarn dev
 ```
 
-Live-server: http://localhost:7777 ([online version](https://mdc.npolar.now.sh))
+Live-server: http://localhost:7777
 
 ## Quality assurrance
 
 ES2019-compliance is enforced using [ESLint](https://eslint.org/). See [.eslintrc](.eslintrc.json)
+
+[![Build Status](https://travis-ci.com/npolar/mdc.svg?branch=master)](https://travis-ci.com/npolar/mdc)
 
 ```
 yarn eslint
@@ -49,11 +51,11 @@ This process also eliminatesThis process also elExternaBuild all components into
 
 - Copying static assets into the distribution folder
 
-## Use
+## Install/use
 
 ```sh
 $ cd ~/my-project
-$ yarn add https://github.com/npolar/mdc
+$ yarn add https://github.com/npolar/mdc#v0.0.1
 $ cd node_modules/@npolar/mdc && yarn && yarn prebuild && cd -
 
 ```
@@ -64,8 +66,8 @@ Having 0 run-time dependencies means: bring ~~your own~~`@npolar/mdc`'s fonts.
 
 Two fonts are included in the `asset/font` folder:
 
-- The great variable width [Inter](https://rsms.me/inter/)
-- [Material Icons](https://material.io/resources/icons/?style=baseline) are provided in the `dist/@npolar/mdc/font/`
+- [Inter](https://rsms.me/inter/)
+- [Material Icons](https://material.io/resources/icons/?style=baseline)
 
 To self-host these fonts, first copy the css files and the font definitions into your project's build / web root (here `dist` in `~/my-project`):
 
