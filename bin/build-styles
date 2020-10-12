@@ -1,20 +1,10 @@
 #!/usr/bin/env bash
-before='//Auto-generated: DO NOT EDIT (see `bin/build-styles`)
-import { css } from "lit-element";
-export default css`'
-after='`;'
-bin="./node_modules/.bin"
-dist="dist/@npolar/mdc"
 find ./src -name "*.scss" -not -name "_*" -print0 | while read -d $'\0' sassfile
 do
   cssfile=`echo ${sassfile} | sed -e 's/.scss/.css/' | sed -e 's/src\//dist\/@npolar\/mdc\/css\//'`
   cssjsfile=`echo ${sassfile} | sed -e 's/.scss/-scss.js/'`
-
-  echo "Building ${sassfile} -> ${cssjsfile}"
+  echo "Building ${sassfile} -> ${cssjsfile} [$cssfile]"
+  ./node_modules/material-components-web-components/scripts/sass-render/bin/sass-render.js -t tpl-export-scss -s ${sassfile} -o ${cssjsfile}
   mkdir -p `dirname $cssfile`
-  css=`cat $sassfile \
-  | $bin/node-sass --omit-source-map-url --output-style=compressed --include-path=./node_modules:./src \
-  | $bin/postcss --use autoprefixer --no-map`
-  echo $css  > $cssfile;
-  echo "$before$css$after" > $cssjsfile
+  cat $cssjsfile | tail -n +2 | sed 's/`;$//' | sed 's/export default css`//' > $cssfile
 done

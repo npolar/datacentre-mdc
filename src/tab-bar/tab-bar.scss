@@ -1,0 +1,15 @@
+@import "../style/shared.scss";
+
+@import "@material/tab-bar/mdc-tab-bar";
+@import "@material/tab-scroller/mdc-tab-scroller";
+@import "@material/tab-indicator/mdc-tab-indicator";
+@import "@material/tab/mdc-tab";
+@import "@material/mwc-tab-bar/src/mwc-tab-bar.scss";
+
+.tab {
+  display: none;
+}
+
+.tab--active {
+  display: block;
+}

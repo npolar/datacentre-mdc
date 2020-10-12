@@ -1,0 +1,15 @@
+#!/bin/bash
+rm -rf dist/*
+
+mkdir -p node_modules
+cd node_modules && rm -rf material-components-web-components
+git clone https://github.com/material-components/material-components-web-components
+cd -
+
+./bin/build-styles
+./bin/copy-assets
+
+# find node_modules/material-components-web-components/packages -name "*.ts" -not -name "_*" -not -name "*test.ts" -print0 | while read -d $'\0' ts
+# do
+#   tsc $ts -t ES2019 -m es2015 --outDir _mwc
+# done

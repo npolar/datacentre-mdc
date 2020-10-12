@@ -1,8 +1,7 @@
-@import "src/style/shared.scss";
-//@import "@material/textfield/mdc-text-field.scss";
+@import "../style/shared.scss";
 @import "@material/mwc-textfield/src/mwc-textfield.scss";
 
 // Sets icon color on toggle icon inputs
 :host mwc-icon-button-toggle {
-  color: var(--mdc-theme-primary); //rgb(22, 70, 104);
+  color: var(--mdc-theme-primary);
 }

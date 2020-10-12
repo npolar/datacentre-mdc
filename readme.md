@@ -1,11 +1,9 @@
 # @npolar/mdc – material design components
 
-ECMAScript2019 web components: [demo](https://mdc.npolar.now.sh)
+@npolar/mdc is a collection ECMAScript2019 custom elements, built with [LitElement](https://lit-element.polymer-project.org/) and [lit-html](https://lit-html.polymer-project.org/) on top of:
 
-Built with [LitElement](https://lit-element.polymer-project.org/) and [lit-html](https://lit-html.polymer-project.org/) on top of:
-
-- [Material Web Components](https://github.com/material-components/material-components-web-components)
 - [Material Components for the web](https://github.com/material-components/material-components-web)
+- [Material Web Components](https://github.com/material-components/material-components-web-components)
 
 ## Develop
 
@@ -29,36 +27,35 @@ yarn eslint
 
 ## Build
 
-The building [rolls up](https://rollupjs.org/guide/en/) each component into a standalone ES2019 module.
-
 ```
-$ yarn build
+yarn build
 ```
 
-**Bare specifiers**
-
-**Styles**
-
-- Compile SCSS to `lit-html` css templates, using node-sass
-  Bare specifiers a
-
-External dependencies, that are imported with `bare specifiers` are
-
-with 0 dependencies.
-This process also eliminatesThis process also elExternaBuild all components into standalone modules in `dist/@npolar/mdc` using:
-
-- is used to cBundling external dependencies, that are imported with `bare specifiers`, using
-
-- Copying static assets into the distribution folder
-
-## Install/use
+## Install
 
 ```sh
 $ cd ~/my-project
-$ yarn add https://github.com/npolar/mdc#v0.0.1
-$ cd node_modules/@npolar/mdc && yarn && yarn prebuild && cd -
-
+$ yarn add https://github.com/npolar/mdc
+$ cd node_modules/@npolar/mdc && yarn && cd -
 ```
+
+## Use
+
+### Colors
+
+```html
+<style>
+  :root {
+    --mdc-theme-primary: #000;
+    --mdc-theme-secondary: rgb(18, 79, 120);
+    --mdc-theme-on-primary: #fff;
+    --mdc-theme-on-secondary: #66bb6a;
+    --mdc-theme-error: #b00020;
+  }
+</style>
+```
+
+See [mdc-theme](https://github.com/material-components/material-components-web/tree/master/packages/mdc-theme) documentation for further customisations.
 
 ### Fonts
 

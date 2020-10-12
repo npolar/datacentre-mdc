@@ -1,2 +1,7 @@
-@import "src/style/shared.scss";
+@import "../style/shared.scss";
 @import "@material/list/mdc-list.scss";
+@import "@material/mwc-list/src/mwc-list.scss";
+
+a {
+  color: var(--mdc-theme-primary);
+}

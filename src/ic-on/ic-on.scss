@@ -1,0 +1,10 @@
+@import "../style/shared.scss";
+@import "@material/mwc-icon/src/mwc-icon-host.scss";
+
+:host {
+  color: var(--mdc-theme-primary);
+  font-family: var(--mdc-icon-font, "Material Icons");
+}
+// .mdc-theme--text-icon-on-light {
+//   color: var(--mdc-theme-primary);
+// }

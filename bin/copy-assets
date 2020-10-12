@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 dist=dist/@npolar/mdc
+asset=asset
 mkdir -p $dist
-rm $dist/* -rf
 
 # Web root
-cp ./asset/index.html dist/
-cp ./asset/robots.txt dist/
-cp ./asset/favicon.ico dist/
+cp -f $asset/index.html dist/
+cp -f $asset/favicon.ico dist/
+cp -f $asset/robots.txt dist/
 
 # Other assets into /@npolar/mdc
-cp -r ./asset/* $dist
+cp -r $asset/* $dist
