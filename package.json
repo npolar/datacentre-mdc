@@ -7,8 +7,6 @@
     "@material/base": "4.0.0",
     "@material/card": "4.0.0",
     "@material/list": "4.0.0",
-    "@material/select": "*",
-    "@material/touch-target": "*",
     "@material/mwc-base": "*",
     "@material/mwc-button": "*",
     "@material/mwc-fab": "*",
@@ -16,6 +14,8 @@
     "@material/mwc-icon-button": "*",
     "@material/mwc-icon-button-toggle": "*",
     "@material/mwc-textfield": "*",
+    "@material/select": "*",
+    "@material/touch-target": "*",
     "lit-element": "=2.2.1",
     "weightless": "=0.0.36"
   },
@@ -24,7 +24,7 @@
   ],
   "devDependencies": {
     "autoprefixer": "^9",
-    "eslint": "^6",
+    "eslint": "^7.11.0",
     "node-sass": "^4",
     "postcss-cli": "^6",
     "rollup": "^1.22",
