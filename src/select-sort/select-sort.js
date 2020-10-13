@@ -2,8 +2,6 @@ import { LitElement, html, css } from "lit-element";
 import { get as tg } from "lit-translate";
 import { emit } from "../host.js";
 
-import { Select } from "../select/select.js";
-import { ListItem } from "../list/list-item.js";
 export const defaultList = new Map([
   [undefined, "relevance"],
   ["-created"],
@@ -17,10 +15,8 @@ export const defaultList = new Map([
 //   lang="${lang}"
 //   .tg="${tg}"
 // ></select-sort>
-const _slot = Symbol();
 export class SelectSort extends LitElement {
   static get properties() {
-    const reflect = true;
     return {
       sort: { type: String },
       lang: { type: String },
@@ -62,7 +58,7 @@ export class SelectSort extends LitElement {
   // }
 
   render() {
-    const { list, sort, lang, translate } = this;
+    const { list, sort, lang } = this;
 
     return html`
       <select-1 label="" icon="sort" .value="${sort}">

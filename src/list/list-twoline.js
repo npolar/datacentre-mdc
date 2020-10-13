@@ -1,12 +1,6 @@
-import { css, html, LitElement } from "lit-element";
+import { html, LitElement } from "lit-element";
 import _ul from "./list-scss.js";
 import { li2 } from "./li-twoline.js";
-import {
-  PRIMARY,
-  SECONDARY,
-  ON_SECONDARY,
-  getThemeProperties
-} from "../host/theme.js";
 
 // import { registerTranslateConfig, get } from "lit-translate";
 //

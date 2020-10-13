@@ -1,7 +1,6 @@
 // https://www.chromium.org/developers/design-documents/form-styles-that-chromium-understands
 import { LitElement } from "lit-element";
 import { emit } from "../host.js";
-import base from "@npolar/fetch-api/src/v1/base.js";
 //import { userStore as store } from "../store/user-store.js";
 import { isValid as isValidJWT, payload } from "@npolar/fetch-api/src/jwt.js";
 import {

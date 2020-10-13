@@ -2,7 +2,6 @@ import { LitElement, html, css } from "lit-element";
 
 // Search/query
 import {
-  request as get,
   searchURL,
   facetEntries as simplifyV1Facets,
   isAPIv1Param
@@ -22,7 +21,6 @@ import { renderFilters } from "./render-filters.js";
 // URLSearchParams
 import {
   searchParams,
-  add as addURLParam,
   remove as removeURLParam
 } from "../url/params.js";
 
@@ -105,9 +103,8 @@ export class SearchAny extends LitElement {
   }
 
   async search() {
-    let { heading, filters, not } = this;
-    const host = this;
-    const { lang, offline, endpoint } = this;
+    let { filters, not } = this;
+    const { offline, endpoint } = this;
     const params = searchParams();
 
     const q = params.has("q") ? params.get("q") : "";
@@ -137,7 +134,6 @@ export class SearchAny extends LitElement {
     if (q !== "") {
       sort = undefined;
       removeURLParam("sort");
-      heading += `: "${q}"`;
     } else {
       removeURLParam("q");
       //addURLParam("sort");
@@ -245,7 +241,6 @@ export class SearchAny extends LitElement {
       handlers: this.handlers({ host: this })
     });
 
-    const params = searchParams();
     this.search();
   }
 
@@ -261,7 +256,6 @@ export class SearchAny extends LitElement {
 
   render() {
     const {
-      endpoint,
       entries,
       facets,
       renderBefore,
@@ -271,10 +265,7 @@ export class SearchAny extends LitElement {
       renderFilters,
       filterLimit,
       opensearch,
-      lang,
       filters,
-      toggleFilter,
-      offline
     } = this;
     const host = this;
     const params = searchParams();

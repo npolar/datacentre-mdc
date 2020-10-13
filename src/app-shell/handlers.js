@@ -64,7 +64,6 @@ const windowHandlerMap = ({ host, window }) =>
       async ({ detail: { lang } }) => {
         window.document.querySelector("html").lang = lang;
 
-        const { heading } = host;
         if (lang && host.lang !== lang) {
           await host.changeLang(lang);
           host.lang = lang;

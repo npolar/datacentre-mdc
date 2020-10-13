@@ -1,6 +1,4 @@
-import { render } from "lit-html";
 import { Select } from "./select.js";
-import { options } from "./option-html.js";
 
 // Convenience element that inject an <option> element for each enum member
 // Use:

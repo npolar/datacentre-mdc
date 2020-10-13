@@ -8,8 +8,6 @@ const { compare } = new Intl.Collator(lang, {
   caseFirst: "lower"
 });
 
-const reverseSorter = (text, compare) => (a, b) => compare(text(a), text(b));
-
 const _renderOL = (
   list = [],
   { text, text2, href, li } = {}
@@ -23,7 +21,6 @@ const _renderOL = (
 
 export class OrderedList extends ListBase {
   static get properties() {
-    const reflect = true;
     return {
       ...super.properties,
       reverse: { type: Boolean },
@@ -43,7 +40,7 @@ export class OrderedList extends ListBase {
   }
 
   sort(list, { reverse = false } = {}) {
-    const { text, compare, sortby } = this;
+    const { text, compare } = this;
 
     if (list && list.length > 1 && text && compare) {
       if (reverse) {
@@ -74,8 +71,7 @@ export class OrderedList extends ListBase {
   // }
 
   render() {
-    const { list, href, text, text2, li, reverse } = this;
-    const sorted = this.sort(list, { reverse });
+    const { list, href, text, text2, li } = this;
     return _renderOL(list, { href, text, text2, li });
   }
 

@@ -1,4 +1,4 @@
-import { css, html, LitElement } from "lit-element";
+import { html, LitElement } from "lit-element";
 import _ul from "./list-scss.js";
 import { li } from "./li.js";
 

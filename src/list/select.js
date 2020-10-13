@@ -89,15 +89,11 @@ export class ListSelect extends LitElement {
       //label,
       selectedIndex,
       valid,
-      activated,
-      selected,
       required,
       disabled
       //outlined
     } = this;
     if (value !== undefined) {
-      activated = true;
-      selected = true;
       selectedIndex = options.findIndex(o => o.value === value);
     } else {
       valid =

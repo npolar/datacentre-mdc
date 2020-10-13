@@ -1,11 +1,7 @@
 const mdt = "mdc-data-table";
 const mcb = "mdc-checkbox";
 
-const th = `${mdt}__header-cell`;
-const tr = `${mdt}__row`;
 const __cell = `${mdt}__cell`;
-
-import { cssClasses } from "../table/exports.js";
 
 // export const cssClasses = {
 //   CELL: 'mdc-data-table__cell',

@@ -1,21 +1,10 @@
-import { svg, html as h } from "lit-element";
-import { Button } from "@npolar/mdc/src/button/exports.js";
+import { html as h } from "lit-element";
 
 //import { linearProgress } from "@npolar/m-html/src/progress/linear-progress.js";
 //import { translate as t } from "./translate.js";
-const translate = (s, lang = "en") => `${lang != "en" ? "" : ""}${s}`; //  { user, lang = getLang(user) } = {}
+const translate = (s, lang = "en") => `${lang !== "en" ? "" : ""}${s}`; //  { user, lang = getLang(user) } = {}
 const t = translate;
 //import anonymousAvatar from "./account_box_svg.js"; //html/src/icon/svg/,,,
-
-const { stringify } = JSON;
-
-const headline = user => {
-  let headline = "Sign in";
-  if (user && user.name) {
-    headline = user.name;
-  }
-  return headline;
-};
 
 export default host => {
   const {
@@ -24,26 +13,10 @@ export default host => {
     method,
     password,
     lang,
-    response,
     signIn,
-    signOutAction,
     onetimeAction,
-    gotoUserProfile,
-    user,
-    jwt,
-    error,
-    statusText
   } = host;
 
-  const errorHTML = error => {
-    if (error && error.status) {
-      return h`<div class="mdc-typography">
-<pre>${error.status} ${error.statusText} [${error.when}]</pre>
-      </div>`;
-    } else {
-      return h`${JSON.stringify(error)}`;
-    }
-  };
   // <span ?hidden="${!user || !user.name}">${anonymousAvatar}</span>
 
   return h`

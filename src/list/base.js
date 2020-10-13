@@ -2,15 +2,6 @@ import { MDCList } from "@material/list";
 import { html, LitElement } from "lit-element";
 import style from "./list-scss.js";
 
-const _li = (item, { href, text } = {}) =>
-  href
-    ? `
-    <li>
-      <a href=${href(item)}>${text(item)}</a>
-    </li>
-  `
-    : `<li>${text(item)}</li>`;
-
 export const ul = (list = []) => html`<ul class="mdc-list"><slot>
   ${
     list && list.length > 0

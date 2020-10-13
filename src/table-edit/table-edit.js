@@ -129,9 +129,6 @@ export class TableEdit extends LitElement {
   render() {
     const {
       header,
-      name,
-      area,
-      ident,
       patches,
       selectedSet,
       undo,
@@ -166,7 +163,7 @@ export class TableEdit extends LitElement {
           <tbody class="mdc-data-table__content">
             ${patches.map(
               ({ name, op, path, value, from, extra = {} } = {}) => {
-                const { when, prev, remote } = extra;
+                const { when, remote } = extra;
                 const key = setkey({ op, path, value, from, extra }, u);
                 const selected = selectedSet.has(key);
                 return html`

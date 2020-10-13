@@ -1,14 +1,3 @@
-import { remove as removeURLParam } from "../url/params.js";
-
-const isTermFiltered = ({ term, value, count, multi, url }) => {
-  const p = new URLSearchParams(url.searchParams);
-
-  const termsInParam = /.+,.+/.test(term)
-    ? p.get(term).split(",")
-    : [p.get(term)];
-  return termsInParam.includes(value);
-};
-
 // Normalize terms by removing term prefixes
 // (needed for api v1 when filtering ranges (date/numeric)
 const normalizeTerm = term => (/-/.test(term) ? term.split("-")[1] : term);
@@ -134,7 +123,6 @@ export const renderFilters = ({
           multi ? () => true : ([term]) => !filters.has(normalizeTerm(term))
         )
         .map(([term, f]) => {
-          let i = 0;
           const termIsFiltered = filters.has(normalizeTerm(term));
           return f.length === 0
             ? ""

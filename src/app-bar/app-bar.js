@@ -65,7 +65,7 @@ export class AppBar extends LitElement {
   }
 
   render() {
-    const { href, open, heading, menuClicked, path } = this;
+    const { open, heading } = this;
 
     return html`
       <header class="mdc-top-app-bar mdc-top-app-bar--fixed">

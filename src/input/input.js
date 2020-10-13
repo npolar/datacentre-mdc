@@ -1,6 +1,4 @@
 import { TextFieldBase } from "@material/mwc-textfield/mwc-textfield-base.js";
-import { TextField } from "@material/mwc-textfield/mwc-textfield.js";
-
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { classMap } from "lit-html/directives/class-map.js";

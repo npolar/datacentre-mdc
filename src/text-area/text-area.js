@@ -6,8 +6,6 @@ import { ifDefined } from "lit-html/directives/if-defined.js";
 import scss from "./textarea-scss.js";
 import style from "./style.js";
 
-import { get as t } from "lit-translate";
-
 export class Textarea extends TextAreaBase {
   static get styles() {
     return [scss, style];

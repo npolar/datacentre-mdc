@@ -60,7 +60,6 @@ export default {
       }
     },
     Facts: "Fakta",
-    Name: "Name",
     history: {
       Headline: "400 år med namn",
       "Caption-prefix": "Interaktiv graf over namngjevingar per"

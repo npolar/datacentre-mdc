@@ -1,1 +1,1 @@
-export * from "./table-edit.js"
+export * from "./table-edit.js";
