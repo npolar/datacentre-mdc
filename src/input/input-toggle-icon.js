@@ -1,7 +1,7 @@
 import { Input } from "./input.js";
 import "@material/mwc-icon-button-toggle";
 import { emit } from "../host.js";
-import { html } from "lit-html";
+//import { html } from "lit-html";
 
 // Outlined input field with (trailing) toggle icon, use like:
 // <input-toggle-icon autocomplete="" onIcon="visibility" offIcon="visibility_off" label="Nice toggle?"></input-toggle-icon>
@@ -13,30 +13,30 @@ export class InputToggleIcon extends Input {
       on: { type: Boolean },
       autocomplete: { type: String },
       onIcon: { type: String },
-      offIcon: { type: String }
+      offIcon: { type: String },
     };
   }
 
   constructor() {
     super();
     this.on = false;
-    this.iconTrailing = true; // needs to be !undefined
+    this.iconTrailing = this.onIcon; // needs to be !undefined
   }
 
-  renderIcon() {
-    const { onIcon, offIcon, on } = this;
-    return html`
-      <mwc-icon-button-toggle
-        onIcon="${onIcon}"
-        offIcon="${offIcon}"
-        ?on=${on}
-      ></mwc-icon-button-toggle>
-    `;
-  }
+  // renderIcon() {
+  //   const { onIcon, offIcon, on } = this;
+  //   return html`
+  //     <mwc-icon-button-toggle
+  //       onIcon="${onIcon}"
+  //       offIcon="${offIcon}"
+  //       ?on=${on}
+  //     ></mwc-icon-button-toggle>
+  //   `;
+  // }
 
   connectedCallback() {
     super.connectedCallback();
-    this.renderRoot.addEventListener("MDCIconButtonToggle:change", e => {
+    this.renderRoot.addEventListener("MDCIconButtonToggle:change", (e) => {
       emit(this, "input-toggle-icon", e.detail);
     });
   }
