@@ -1,3 +1,9 @@
+/* eslint-disable */
+
+/**
+ * @todo check if this file exist and fix it. Or delete it when not in use
+ */
+
 export const textAreaPerLanguage = (
   prop,
   obj,
