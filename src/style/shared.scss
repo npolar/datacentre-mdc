@@ -1,29 +1,17 @@
-:host {
-  --mdc-theme-primary: rgb(18, 79, 120);
-  --mdc-theme-on-primary: #fff;
-  --mdc-theme-secondary: #202525;
-  --mdc-theme-on-secondary: #fff;
-  --mdc-theme-error: #b00020;
-  padding: 0;
-  margin: 0;
-}
+@import "./_core.scss";
+@import "@material/theme/mdc-theme.scss";
+@import "./typography.scss";
 
 :host[hidden] {
   display: none;
 }
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
+:host a,
 a {
-  // color: var(--mdc-theme-primary);
   text-decoration: none;
 }
-
-@import "src/style/typography.scss";
-*[slot] {
-  font-family: $mdc-typography-font-family;
+.error {
+  --mdc-theme-primary: var(--mdc-theme-error);
+}
+*:not(:defined) {
+  display: none;
 }

@@ -1,26 +1,48 @@
-import nodeResolve from "rollup-plugin-node-resolve";
+import nodeResolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 import { eslint } from "rollup-plugin-eslint";
-import liveServer from "rollup-plugin-live-server";
-const input = {
-  "button-mdc": "src/button/exports.js",
-  //"card-mdc": "src/card/exports.js",
-  "input-mdc": "src/input/exports.js",
-  "select-mdc": "src/select/exports.js",
-  "nav-mdc": "src/nav/exports.js",
-  demo: "src/demo.js"
-};
+import { terser } from "rollup-plugin-terser";
+import filesize from "rollup-plugin-filesize";
+import liveserver from "rollup-plugin-live-server";
+import pkg from "./package.json";
+const exclude = ["lit-element", "lit-html", "lit-translate"];
+const deps = [...Object.keys(pkg.dependencies)].filter(
+  name => !exclude.includes(name)
+);
 
-const dir = "dist/@npolar/mdc";
-const plugins = [eslint(), nodeResolve()];
-const output = { format: "esm", dir };
+const input = ["src/demo-app.js"]; //, ...deps];
+
+const dir = "dist";
+const format = "esm";
+const output = { format, dir };
+const terserConfig = {
+  parse: {
+    html5_comments: false
+  },
+  output: {
+    comments: false
+  }
+};
+let plugins = [nodeResolve(), commonjs(), filesize()];
+
+const app = {
+  input,
+  output,
+  plugins
+};
 
 const { ROLLUP_WATCH } = process.env;
 if (ROLLUP_WATCH) {
-  const liveServerConfig = {
-    root: "dist",
+  const liveserverConfig = {
+    root: dir,
     open: false,
+    file: "index.html",
     port: 7777
   };
-  plugins.push(liveServer(liveServerConfig));
+
+  plugins = [...plugins, liveserver(liveserverConfig)];
+} else {
+  plugins = [...plugins, eslint(), terser(terserConfig)];
 }
-export default { input, plugins, output };
+
+export default [app];

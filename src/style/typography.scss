@@ -1,7 +1,10 @@
-$mdc-typography-font-family: unquote("Inter var, sans-serif") !default;
+// https://github.com/material-components/material-components-web/tree/master/packages/mdc-typography#css-custom-properties
+$mdc-typography-font-family: unquote("Inter var, sans-serif") !important !default;
 
-// The relative font URLs below work from the generated /css/style/typography.css
-// Use by including <link rel="stylesheet" href="/css/style/typography.css" />
+@import "@material/typography/mdc-typography.scss";
+
+// The relative font URLs below work from the compiled typography.css
+// Use by including <link rel="stylesheet" href="/@npolar/mdc/css/style/typography.css" />
 @font-face {
   font-family: "Inter var";
   font-weight: 100 900;
@@ -19,4 +22,13 @@ $mdc-typography-font-family: unquote("Inter var, sans-serif") !default;
   src: url("../../font/inter/Inter-italic.var.woff2") format("woff2");
 }
 
-@import "@material/typography/mdc-typography.scss";
+[slot] {
+  font-family: $mdc-typography-font-family !important;
+}
+
+//https://github.com/material-components/material-components-web-components/issues/1050#issuecomment-606179722
+// @use "@material/typography";
+//
+// .my-headline {
+//   @include typography.typography(headline1);
+// }

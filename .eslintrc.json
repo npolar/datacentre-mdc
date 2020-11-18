@@ -21,6 +21,7 @@
     "no-implied-eval": "error",
     "no-self-compare": "error",
     "no-unused-expressions": "error",
-    "curly": "error"
+    "curly": "error",
+    "no-unused-vars": ["error", {"args": "none"}]
   }
 }

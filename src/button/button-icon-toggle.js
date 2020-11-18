@@ -1,5 +1,4 @@
 import { IconButtonToggleBase } from "@material/mwc-icon-button-toggle/mwc-icon-button-toggle-base.js";
-//import "@material/mwc-icon-button-toggle";
 import style from "./button-icon-scss.js";
 
 export class ButtonIconToggle extends IconButtonToggleBase {

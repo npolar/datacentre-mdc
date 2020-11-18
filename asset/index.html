@@ -2,144 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="description"
-      content="@npolar/mdc – material design components"
-    />
+    <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/@npolar/mdc/font/material-icons.css" />
-    <link rel="stylesheet" href="/@npolar/mdc/css/style/typography.css" />
-    <title>@npolar/mdc demo</title>
+    <link rel="stylesheet" href="@npolar/mdc/css/style/shared.css" />
+    <link rel="stylesheet" href="@npolar/mdc/font/material-icons.css" />
+
+    <title></title>
     <style>
-      html,
-      body,
-      nav-bar {
+      body {
+        font-family: "Inter var", sans-serif;
         margin: 0;
         padding: 0;
-        --nav-bar-background: var(--mdc-theme-secondary);
-        --nav-bar-color: var(--mdc-theme-on-secondary);
-        --nav-open-background: var(--mdc-theme-primary);
-        --nav-open-color: var(--mdc-theme-on-primary);
-        --nav-bar-nav-icon-display: "none";
+        min-height: 100vh;
+        scroll-behavior: smooth;
+        text-rendering: optimizeSpeed;
+        --mdc-typography-font-family: "Inter var", sans-serif;
       }
 
-      nav-bar a.logo {
-        color: pink;
+      app-bar {
+        margin: 0;
+        padding: 0;
       }
 
-      select-mdc,
-      select-enum,
-      input-mdc,
-      input-password,
-      input-lock,
-      input-search,
-      button-mdc,
-      button-fab,
-      button-icon {
-        margin: 4px;
-        padding: 4px;
-      }
-
-      main {
-        /* padding-top: 55px; */
-      }
-
-      .danger {
-        --mdc-theme-primary: var(--mdc-theme-error);
-      }
-      .black-on-white {
-        --mdc-theme-on-secondary: black;
-        --mdc-theme-secondary: white;
-      }
-      ._2ndary {
-        --mdc-theme-primary: var(--mdc-theme-secondary);
+      *:not(:defined) {
+        display: none;
       }
     </style>
   </head>
-  <body hidden>
-    <nav-bar
-      id="npolar-mdc"
-      href="#npolar-mdc"
-      heading="@npolar/mdc"
-      links='[{"text":"Invert colors", "href": "#npolar-mdc", "id": "invert"},
-        {"text":"Primary theme", "href": "#npolar-mdc", "id": "primary"},
-        {"text":"Secondary theme", "href": "#npolar-mdc", "id": "secondary"},
-        {"text":"Dark", "href": "#npolar-mdc", "id": "dark"},
-        {"text":"Light", "href": "#npolar-mdc", "id": "light"}
-        ]'
-      fixed
-      dark
-    ></nav-bar>
-    <main>
-      <card-mdc>
-        <div slot="secondary">
-          <select-enum
-            name="area"
-            label="area"
-            value="Dronning Maud Land"
-            enum='["", "Svalbard", "Jan Mayen", "Bouvetøya", "Peter I Øy", "Dronning Maud Land"]'
-          >
-          </select-enum>
-        </div>
-      </card-mdc>
 
-      <section>
-        <!--<div>
-          <input-mdc
-            fullwidth
-            name="fullwidth"
-            helper="Helper text"
-            placeholder="fullwidth"
-          ></input-mdc>
-        </div>-->
-        <div>
-          <input-mdc autofocus label="input-mdc[autofocus]"></input-mdc>
-          <input-search name="search" label="input-search"></input-search>
-          <input-password
-            label="input-password"
-            name="password"
-          ></input-password>
-          <input-lock label="input-lock"></input-lock>
-        </div>
-      </section>
+  <body>
+    <demo-app></demo-app>
+    <script type="module" src="demo-app.js"></script>
+    <script type="nomodule" src="@npolar/mdc/nomodule.js"></script>
 
-      <section>
-        <div>
-          <button-mdc>button-mdc</button-mdc>
-          <button-mdc outlined>outlined</button-mdc>
-          <button-mdc raised>raised</button-mdc>
-          <button-mdc id="dark-light" class="_2ndary" raised
-            >secondary
-          </button-mdc>
-        </div>
-        <div>
-          <button-mdc icon="cloud" label="cloud"></button-mdc>
-          <button-mdc icon="cloud" label="outlined" outlined></button-mdc>
-          <button-mdc icon="cloud" label="raised"></button-mdc>
-          <button-mdc
-            icon="error"
-            class="danger"
-            label="dangerous"
-            raised
-            outlined
-          ></button-mdc>
-        </div>
-        <div>
-          <button-icon-toggle
-            on
-            icon="menu"
-            icon-toggle="close"
-          ></button-icon-toggle>
-          <button-icon class="danger" icon="warning"></button-icon>
-        </div>
-        <div>
-          <button-fab icon="edit"></button-fab>
-          <button-fab icon="add" mini></button-fab>
-          <button-fab icon="cloud" extended label="Upload"></button-fab>
-          <button-fab icon="share" class="black-on-white"></button-fab>
-        </div>
-      </section>
-    </main>
-    <script type="module" src="/@npolar/mdc/demo.js"></script>
+    <noscript>
+      <header>
+        <h1 lang="nn">Krev JavaScript…</h1>
+        <h1 lang="en">Requires JavaScript…</h1>
+      </header>
+      <article lang="nn"></article>
+      <article lang="en"></article>
+    </noscript>
   </body>
 </html>
