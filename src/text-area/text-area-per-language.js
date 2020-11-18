@@ -1,8 +1,4 @@
-/* eslint-disable */
-
-/**
- * @todo check if this file exist and fix it. Or delete it when not in use
- */
+import { get as g } from "lit-translate";
 
 export const textAreaPerLanguage = (
   prop,
