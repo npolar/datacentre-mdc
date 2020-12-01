@@ -5,3 +5,9 @@
 a {
   color: var(--mdc-theme-primary);
 }
+
+
+// override white-space property from @material
+.mdc-list-item__secondary-text {
+  white-space: normal;
+}
